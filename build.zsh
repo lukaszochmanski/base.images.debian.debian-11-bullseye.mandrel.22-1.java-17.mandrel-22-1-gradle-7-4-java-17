@@ -15,8 +15,8 @@ if [[ "$IMAGE_TAG" == *-SNAPSHOT ]]
 then
   echo "no tag"
 else
-  git add . && git commit -m 'WEB-2646: Create a CodeBuild pipeline for GraalVM base image'
-  git tag -a $IMAGE_TAG -m 'WEB-2646: Create a CodeBuild pipeline for GraalVM base image'
+  git add . && git commit -m 'Bump version to 1.0.0'
+  git tag -a $IMAGE_TAG -m 'Bump version to 1.0.0'
   git push --follow-tags
 fi
 
