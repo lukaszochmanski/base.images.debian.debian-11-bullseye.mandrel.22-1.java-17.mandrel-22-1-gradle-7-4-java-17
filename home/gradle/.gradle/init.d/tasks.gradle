@@ -1,0 +1,88 @@
+allprojects {
+    afterEvaluate {
+    	task version {
+		    doLast {
+		        println('project: "' + rootProject.name + '" version: ' + rootProject.version)
+		    }
+		}
+        task printRootProjectName {
+		    doLast {
+		        println('root project: ' + rootProject.name)
+		    }
+		}
+		task howToRefreshToken {
+			doLast {
+				def cmd = 'export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token' +
+						' --domain ' + codeartifactDomain +
+						' --domain-owner ' + codeartifactDomainOwner +
+						' --query authorizationToken --output text' +
+						' --profile ' + codeartifactProfile + '`'
+				println(cmd)
+			}
+		}
+		task refreshToken {
+			doLast {
+				def cmd = 'export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token' +
+						' --domain ' + codeartifactDomain +
+						' --domain-owner ' + codeartifactDomainOwner +
+						' --query authorizationToken --output text' +
+						' --profile ' + codeartifactProfile + '`'
+				println(cmd)
+			}
+		}
+		task showToken {
+		    doLast {
+		        println('CODEARTIFACT_AUTH_TOKEN: ' + codeartifactPass)
+		    }
+		}
+		task printProps {
+		    doLast {
+		    	println '=========================================='
+		    	println 'Gradle Local Environment variables from gradle.properties'
+		    	println '=========================================='
+		        println 'AWS_DEFAULT_REGION: ' + System.properties['AWS_DEFAULT_REGION']
+		        println 'AWS_CODEARTIFACT_DOMAIN: ' +  System.properties['AWS_CODEARTIFACT_DOMAIN']
+		        println 'AWS_CODEARTIFACT_DOMAIN_OWNER: ' +  System.properties['AWS_CODEARTIFACT_DOMAIN_OWNER']
+		        println 'AWS_ECR_DOMAIN_OWNER: ' +  System.properties['AWS_ECR_DOMAIN_OWNER']
+		        println 'AWS_CODEARTIFACT_PROFILE: ' +  System.properties['AWS_CODEARTIFACT_PROFILE']
+		        println 'AWS_CODEARTIFACT_USER: ' +  System.properties['AWS_CODEARTIFACT_USER']
+		        println 'SPRING_DATASOURCE_PASSWORD: ' +  System.properties['SPRING_DATASOURCE_PASSWORD']
+		        println 'AWS_ECR_AUTH_TOKEN: ' +  System.properties['AWS_ECR_AUTH_TOKEN']
+		        println 'CODEARTIFACT_AUTH_TOKEN: ' +  System.properties['CODEARTIFACT_AUTH_TOKEN']
+		        println 'BLUEID_BCONNECT_INITIALADMINPASSWORD: ' +  System.properties['BLUEID_BCONNECT_INITIALADMINPASSWORD']
+		        println ''
+		        println '=========================================='
+		        println 'OS Global Environment variables from ~/.zshrc'
+		        println '=========================================='
+		        println 'AWS_DEFAULT_REGION: ' + System.env.AWS_DEFAULT_REGION
+		        println 'AWS_CODEARTIFACT_DOMAIN: ' +  System.env.AWS_CODEARTIFACT_DOMAIN
+		        println 'AWS_CODEARTIFACT_DOMAIN_OWNER: ' +  System.env.AWS_CODEARTIFACT_DOMAIN_OWNER
+		        println 'AWS_ECR_DOMAIN_OWNER: ' +  System.env.AWS_ECR_DOMAIN_OWNER
+		        println 'AWS_CODEARTIFACT_PROFILE: ' +  System.env.AWS_CODEARTIFACT_PROFILE
+		        println 'AWS_CODEARTIFACT_USER: ' +  System.env.AWS_CODEARTIFACT_USER
+		        println 'SPRING_DATASOURCE_PASSWORD: ' +  System.env.SPRING_DATASOURCE_PASSWORD
+		        println 'AWS_ECR_AUTH_TOKEN: ' +  System.env.AWS_ECR_AUTH_TOKEN
+		        println 'CODEARTIFACT_AUTH_TOKEN: ' +  System.env.CODEARTIFACT_AUTH_TOKEN
+		        println 'BLUEID_BCONNECT_INITIALADMINPASSWORD: ' +  System.env.BLUEID_BCONNECT_INITIALADMINPASSWORD
+		        println ''
+		        println '=========================================='
+		        println 'System.getenv Environment variables'
+		        println '=========================================='
+		        println 'AWS_DEFAULT_REGION: ' + System.getenv('AWS_DEFAULT_REGION')
+		        println 'AWS_CODEARTIFACT_DOMAIN: ' +  System.getenv('AWS_CODEARTIFACT_DOMAIN')
+		        println 'AWS_CODEARTIFACT_DOMAIN_OWNER: ' +  System.getenv('AWS_CODEARTIFACT_DOMAIN_OWNER')
+		        println 'AWS_ECR_DOMAIN_OWNER: ' +  System.getenv('AWS_ECR_DOMAIN_OWNER')
+		        println 'AWS_CODEARTIFACT_PROFILE: ' +  System.getenv('AWS_CODEARTIFACT_PROFILE')
+		        println 'AWS_CODEARTIFACT_USER: ' +  System.getenv('AWS_CODEARTIFACT_USER')
+		        println 'SPRING_DATASOURCE_PASSWORD: ' +  System.getenv('SPRING_DATASOURCE_PASSWORD')
+		        println 'AWS_ECR_AUTH_TOKEN: ' +  System.getenv('AWS_ECR_AUTH_TOKEN')
+		        println 'CODEARTIFACT_AUTH_TOKEN: ' +  System.getenv('CODEARTIFACT_AUTH_TOKEN')
+		        println 'BLUEID_BCONNECT_INITIALADMINPASSWORD: ' +  System.getenv('BLUEID_BCONNECT_INITIALADMINPASSWORD')
+		        println ''
+		        println ''
+		        println 'Please note that some properties may be missing from the list above. It is only a selection of the properties.'
+		        println 'If you would like to display more, please add them into the ~/.gradle/init.d/tasks.gradle file.'
+		    }
+		}
+	}
+}
