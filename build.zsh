@@ -5,7 +5,7 @@ cd $AWS/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/gr
 HOST=964010022385.dkr.ecr.eu-central-1.amazonaws.com
 GROUP_ID=base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17
 ARTIFACT_ID=graalvm-17-gradle-7-4
-IMAGE_TAG=1.0.0-SNAPSHOT
+IMAGE_TAG=1.0.0
 cat README.md.tpl | sed s,"###CI_COMMIT_TAG###","$IMAGE_TAG", > README.md.tpl2
 TODAY=`date`
 cat README.md.tpl2 | sed s,"###TIMESTAMP###","$TODAY", > README.md

@@ -6,7 +6,7 @@ env:
     buildImage: 964010022385.dkr.ecr.eu-central-1.amazonaws.com/releases/base/images/alpine/alpine-3-15/dind/dind-20-10/alpine-3-15-dind:1.0.0
     GROUP_ID: 'base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17'
     ARTIFACT_ID: 'graalvm-17-gradle-7-4'
-    IMAGE_TAG: '1.0.0-SNAPSHOT'
+    IMAGE_TAG: '1.0.0'
 
 phases:
   install:
