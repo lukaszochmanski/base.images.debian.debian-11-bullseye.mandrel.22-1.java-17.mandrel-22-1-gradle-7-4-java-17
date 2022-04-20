@@ -36,10 +36,4 @@ LABEL git.branch=${CI_COMMIT_BRANCH} \
       git.tag=${CI_COMMIT_TAG} \
       git.source=${IMAGE_SOURCE}
 
-RUN apt update \
-    && apt -y install python3 python3-pip \
-    && python3 -m pip install --upgrade pip \
-    && python3 -m pip install --no-cache-dir awscli \
-    && rm -rf /var/cache/apt/*
-
 WORKDIR /home/gradle
