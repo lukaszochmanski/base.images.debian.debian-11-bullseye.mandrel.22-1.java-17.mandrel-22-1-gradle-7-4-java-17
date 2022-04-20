@@ -4,7 +4,12 @@ ARG AWS_ACCOUNT_ID=964010022385
 ARG HOST="964010022385.dkr.ecr.eu-central-1.amazonaws.com"
 ARG DOCKER_REPOSITORY="releases"
 ARG ECR_URL="https://eu-central-1.console.aws.amazon.com/ecr/repositories"
-ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-17-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4"
+ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4"
+ARG JAVA_VERSION="17.0.14+9-jvmci-22.0-b05"
+ARG JAVA_HOME="/opt/graalvm"
+ARG GRAALVM_HOME="/opt/graalvm"
+ARG GRADLE_HOME="/opt/gradle"
+ARG GRADLE_VERSION="7.4"
 ARG CI_COMMIT_BRANCH
 ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
@@ -17,13 +22,14 @@ ENV DOWNLOADS=/downloads \
     CI_COMMIT_BRANCH=${CI_COMMIT_BRANCH} \
     CI_COMMIT_SHA=${CI_COMMIT_SHA} \
     CI_COMMIT_TAG=${CI_COMMIT_TAG} \
-    JAVA_HOME=/opt/graalvm \
-    GRADLE_HOME=/opt/gradle \
-    GRADLE_VERSION=7.4 \
+    JAVA_HOME=${JAVA_HOME} \
+    GRAALVM_HOME=${GRAALVM_HOME} \
+    GRADLE_HOME=${GRADLE_HOME} \
+    GRADLE_VERSION=${GRADLE_VERSION} \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
-    JAVA_VERSION=11.0.14+9-jvmci-22.0-b05
+    JAVA_VERSION=${AWS_ACCOUNT_ID}
 
 LABEL git.branch=${CI_COMMIT_BRANCH} \
       git.commit=${CI_COMMIT_SHA} \
