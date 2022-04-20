@@ -1,4 +1,4 @@
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4:1.0.1
+FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4:1.0.4
 
 ARG AWS_ACCOUNT_ID=964010022385
 ARG HOST="964010022385.dkr.ecr.eu-central-1.amazonaws.com"
@@ -7,6 +7,7 @@ ARG ECR_URL="https://eu-central-1.console.aws.amazon.com/ecr/repositories"
 ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4"
 ARG JAVA_VERSION="22.0.0.2.r17-grl"
 ARG JAVA_HOME="/root/.sdkman/candidates/java/current"
+ARG GRAALVM_HOME="/root/.sdkman/candidates/java/current"
 ARG GRADLE_HOME="/opt/gradle"
 ARG GRADLE_VERSION="7.4"
 ARG CI_COMMIT_BRANCH
