@@ -6,8 +6,7 @@ ARG DOCKER_REPOSITORY="releases"
 ARG ECR_URL="https://eu-central-1.console.aws.amazon.com/ecr/repositories"
 ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4"
 ARG JAVA_VERSION="22.0.0.2.r17-grl"
-ARG JAVA_HOME="/opt/graalvm"
-ARG GRAALVM_HOME="/opt/graalvm"
+ARG JAVA_HOME="/root/.sdkman/candidates/java/current"
 ARG GRADLE_HOME="/opt/gradle"
 ARG GRADLE_VERSION="7.4"
 ARG CI_COMMIT_BRANCH
@@ -46,13 +45,14 @@ RUN apt update \
     && echo "sdkman_auto_answer=true" > $SDKMAN_DIR/etc/config \
     && echo "sdkman_auto_selfupdate=false" >> $SDKMAN_DIR/etc/config \
     && echo "sdkman_insecure_ssl=true" >> $SDKMAN_DIR/etc/config \
-    && chmod +x $SDKMAN_DIR/bin/sdkman-init.sh
-    
+    && chmod +x $SDKMAN_DIR/bin/sdkman-init.sh \
+    && rm -rf /opt/graalvm
+
 RUN bash -c "source $SDKMAN_DIR/bin/sdkman-init.sh \
-        && sdk version \
-        && sdk install java $JAVA_VERSION \
-        && gu install native-image \
-        && rm -rf $SDKMAN_DIR/archives/* \
-        && rm -rf $SDKMAN_DIR/tmp/*"
+    && sdk version \
+    && sdk install java $JAVA_VERSION \
+    && gu install native-image \
+    && rm -rf $SDKMAN_DIR/archives/* \
+    && rm -rf $SDKMAN_DIR/tmp/*"
 
 WORKDIR /home/gradle

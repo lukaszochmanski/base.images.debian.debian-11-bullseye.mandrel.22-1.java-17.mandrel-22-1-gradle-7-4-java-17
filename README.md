@@ -1,5 +1,5 @@
 # base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
-last updated: Wed Apr 20 14:28:01 CEST 2022  
+last updated: Wed Apr 20 14:47:40 CEST 2022  
   
 ### CodeCommit
 https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/browse?region=eu-central-1  
