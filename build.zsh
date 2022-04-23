@@ -20,9 +20,10 @@ else
   git push --follow-tags
 fi
 
-docker build -t "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG .
-docker run --rm -ti --privileged --entrypoint /bin/bash "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG
-# docker image rm "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG
+docker build -t "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test .
+docker run --rm -ti --privileged --entrypoint /bin/bash "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test
+docker image rm "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test
 echo "https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-debian-11-bullseye-gradle-gradle-7-4-graalvm-ce-17-graalvm-17-gradle-7-4/details?region=eu-central-1"
 echo
-echo "docker pull $HOST/$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG"
+echo "docker build -t $HOST/$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG ."
+echo "docker push $HOST/$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG"
