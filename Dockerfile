@@ -1,5 +1,6 @@
 FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4:1.0.4
 
+ARG AWS_DEFAULT_REGION="eu-central-1"
 ARG AWS_ACCOUNT_ID=964010022385
 ARG HOST="964010022385.dkr.ecr.eu-central-1.amazonaws.com"
 ARG DOCKER_REPOSITORY="releases"
@@ -15,8 +16,10 @@ ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
 
 ENV DOWNLOADS=/downloads \
+    AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
     AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID} \
     HOST=${HOST} \
+    DOCKER_REPOSITORY=${DOCKER_REPOSITORY} \
     ECR_URL=${ECR_URL} \
     IMAGE_SOURCE=${IMAGE_SOURCE} \
     CI_COMMIT_BRANCH=${CI_COMMIT_BRANCH} \
