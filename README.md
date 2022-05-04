@@ -140,6 +140,7 @@ aws-cli/1.22.97 Python/3.9.2 Linux/5.10.104-linuxkit botocore/1.24.42
 org.gradle.daemon=true
 org.gradle.parallel=true
 org.gradle.caching=true
+org.gradle.console=plain
 buildInfo.build.number=CodeBuild
 systemProp.org.gradle.internal.launcher.welcomeMessageEnabled=false
 systemProp.AWS_DEFAULT_REGION=eu-central-1
