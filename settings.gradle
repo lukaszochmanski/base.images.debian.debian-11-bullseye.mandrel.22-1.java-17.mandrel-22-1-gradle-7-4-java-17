@@ -1,0 +1,35 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+        maven {
+            name 'maven-releases'
+            url 'https://blueid-964010022385.d.codeartifact.eu-central-1.amazonaws.com/maven/releases/'
+            mavenContent {
+                releasesOnly()
+            }
+            credentials {
+                username 'aws'
+                password System.env.CODEARTIFACT_AUTH_TOKEN
+            }
+        }
+        maven {
+            name 'maven-snapshots'
+            url 'https://blueid-964010022385.d.codeartifact.eu-central-1.amazonaws.com/maven/snapshots/'
+            mavenContent {
+                snapshotsOnly()
+            }
+            credentials {
+                username 'aws'
+                password System.env.CODEARTIFACT_AUTH_TOKEN
+            }
+        }
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/snapshot' }
+        mavenCentral()
+    }
+}
+plugins {
+    id "io.alcide.gradle-semantic-build-versioning" version "4.2.2"
+}
+rootProject.name = 'graalvm-17-gradle-7-4'
