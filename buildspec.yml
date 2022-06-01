@@ -3,15 +3,20 @@ version: 0.2
 env:
   variables:
     buildComputeType: BUILD_GENERAL1_SMALL
-    buildImage: 964010022385.dkr.ecr.eu-central-1.amazonaws.com/releases/base/images/alpine/alpine-3-15/dind/dind-20-10/alpine-3-15-dind:1.0.5
+    buildImage: 964010022385.dkr.ecr.eu-central-1.amazonaws.com/releases/base/images/alpine/alpine-3-15/dind/dind-20-10/gradle/gradle-7-4/openjdk-11-dind:1.1.6
     GROUP_ID: 'base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17'
     ARTIFACT_ID: 'graalvm-17-gradle-7-4'
     IMAGE_TAG: '1.0.1'
 
 phases:
+  install:
+    commands:
+      - /home/image/check.sh
+      - /usr/local/bin/dockerd-entrypoint.sh
   pre_build:
     commands:
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $HOST
+      - /home/docker/login.sh
+      - . /home/aws/codeartifact.sh
   build:
     commands:
       - echo $CI_COMMIT_TAG
