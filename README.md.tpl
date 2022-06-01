@@ -21,8 +21,8 @@ docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/d
 ```
 REPOSITORY																																		TAG				IMAGE ID	    SIZE
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4		###CI_COMMIT_TAG###			77001b2973d2	1.52GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4		1.0.6			77001b2973d2	1.52GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-11-gradle								1.0.4			89b0555d5692	1.32GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4		1.1.15			77001b2973d2	1.52GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-11-gradle								1.1.9			89b0555d5692	1.32GB
 ```
 
 ### image based on source:
@@ -30,7 +30,7 @@ https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/ba
   
 https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4?region=eu-central-1  
 ```  
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4:1.0.4
+FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4:1.1.15
 ```
 
 ### image details:
