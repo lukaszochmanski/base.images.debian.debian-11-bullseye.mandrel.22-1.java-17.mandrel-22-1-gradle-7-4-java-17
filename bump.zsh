@@ -22,10 +22,8 @@ cat README.md.tpl2 | sed s,"###TIMESTAMP###","$TODAY", > README.md
 rm README.md.tpl2
 git add . && git commit -m "Update README.md to version: $IMAGE_TAG"
 
-gradle tag -PbumpComponent=patch -Prelease
-LATEST_VER=$(gradle -q printVersion)
-git tag -d $LATEST_VER
-git tag -a $LATEST_VER -m $tagMessage
+nextPatch=$(git semver --next-patch)
+git tag -a "$nextPatch" -m "$tagMessage"
 git push --follow-tags
 git tags
 gradle printVersion
