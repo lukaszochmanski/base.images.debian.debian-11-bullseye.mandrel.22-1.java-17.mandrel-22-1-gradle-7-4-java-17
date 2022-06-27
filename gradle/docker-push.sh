@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set +x
+set -e
+echo Buiding image...
+
 PROJECT_VERSION=$(gradle -q printVersion)
 if [[ "$PROJECT_VERSION" == *-SNAPSHOT ]]
 then
