@@ -17,14 +17,4 @@ phases:
   build:
     commands:
       - /home/git/find-current-branch.sh
-      - CURRENT_TAG=$(git tag --points-at HEAD | tail -1)
-      - |
-        if [ -n "$CURRENT_TAG" ]
-        then
-          gradle dockerPush
-          /home/gradle/summary.sh
-        else
-          echo "INFO: No git tag found for this commit."
-          echo "INFO: You see this message because no snapshot repository was set up for this project."
-          echo "INFO: to avoid this message, execute: ./bump.zsh locally."
-        fi
+      - ./gradle/docker-push.sh
