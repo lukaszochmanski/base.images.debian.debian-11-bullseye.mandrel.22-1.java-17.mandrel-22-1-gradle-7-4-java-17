@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     buildComputeType: BUILD_GENERAL1_SMALL
-    buildImage: 964010022385.dkr.ecr.eu-central-1.amazonaws.com/releases/base/images/alpine/alpine-3-15/dind/dind-20-10/gradle/gradle-7-4/openjdk-11-dind:1.1.8
+    buildImage: 964010022385.dkr.ecr.eu-central-1.amazonaws.com/releases/base/images/alpine/alpine-3-15/dind/dind-20-10/gradle/gradle-7-4/openjdk-11-dind:1.1.10
 
 phases:
   install:
