@@ -10,14 +10,13 @@ IMAGE_TAG=$(gradle -q printVersion)
 docker build -t "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test .
 docker run --rm -ti --privileged --entrypoint /bin/bash "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test
 docker image rm "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test
-echo "https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-debian-11-bullseye-gradle-gradle-7-4-graalvm-ce-17-graalvm-17-gradle-7-4/details?region=eu-central-1"
 echo
 
 if [[ "$IMAGE_TAG" == *-SNAPSHOT ]]
 then
-  export DOCKER_REPOSITORY=''
-else
   export DOCKER_REPOSITORY='snapshots/'
+else
+  export DOCKER_REPOSITORY=''
 fi
 
 echo "docker build -t $HOST/$DOCKER_REPOSITORY$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG ."
