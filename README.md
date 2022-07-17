@@ -1,41 +1,84 @@
 # base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
-last updated: Sun Jul 17 19:14:20 CEST 2022  
-  
-### CodeCommit
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/browse?region=eu-central-1  
-  
-### Code Build
-https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-debian-11-bullseye-gradle-gradle-7-4-graalvm-ce-17-graalvm-17-gradle-7-4/details?region=eu-central-1  
-  
-```bash
-git clone codecommit::eu-central-1://Blueid-id-developer@base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4 base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
-```
-  
-### image coordinates:
-https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
 
-```  
-docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.3
+last updated: Sun Jul 17 19:27:33 CEST 2022
+&nbsp;
+
+&nbsp;
+
+Main branch:  
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
+
+Latest tag: 1.0.4  
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.0.4)  
+&nbsp;
+
+&nbsp;
+
+## Before you start
+
+### Gradle configuration
+
+Before you start it is assumed that you read and completed the
+[Developer Guide](https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/documentation.developer-documentation/browse?region=eu-central-1)
+
+The document contains instruction how to configure access to our binary repository (CodeArtifact). Without access to  
+CodeArtifact, you will be unable to compile any java project. Most java projects use libraries, which are stored in this  
+repository. If you don't set up Multi-Factor authentication, credentials, and repository URL in your system, you will  
+see compilation errors.
+&nbsp;
+
+&nbsp;
+&nbsp;
+
+&nbsp;
+
+## 1. How to clone:
+```bash
+git clone codecommit::eu-central-1://Blueid-id-developer@base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4 $AWS/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
 ```
-### docker images:
+
+## 2. CodeCommit
+https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/browse?region=eu-central-1
+&nbsp;
+
+&nbsp;
+
+## 3. CodeBuild
+https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-11-bullseye-graalvm-ce-17-gradle-7-4-build-project/details?region=eu-central-1
+&nbsp;
+
+&nbsp;
+
+## 4. Amazon Elastic Container Registry page:
+https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/releases/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
+&nbsp;
+
+&nbsp;
+
+## 5. Image coordinates:
+```  
+docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.4
+```
+
+## 6. Docker images:
 ```
 REPOSITORY																																		TAG				IMAGE ID	    SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4		1.0.3			77001b2973d2	1.52GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4		1.1.15			77001b2973d2	1.52GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-11-gradle								1.1.9			89b0555d5692	1.32GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4		1.0.4			798a26ee64be	1.83GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-17-gradle								1.0.0			89b0555d5692	1.32GB
 ```
 
-### image based on source:
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-11.graalvm-11-gradle-7-4/browse?region=eu-central-1
-  
-https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4?region=eu-central-1  
+## 7. image based on source:
+https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.vegardit.graalvm-11-gradle/browse?region=eu-central-1
+
+https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/vegardit/graalvm-11-gradle
+
 ```  
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-11/graalvm-11-gradle-7-4:1.1.15
+FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-11-gradle:1.0.0
 ```
 
-### image details:
+## 8. image details:
 ```bash
-$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.3
+$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.4
 
 # echo $0
 /bin/bash
@@ -119,6 +162,16 @@ Docker version 20.10.9, build c2ea9bc
 
 # gradle -version
 
+Welcome to Gradle 7.4!
+
+Here are the highlights of this release:
+ - Aggregated test and JaCoCo reports
+ - Marking additional test source directories as tests in IntelliJ
+ - Support for Adoptium JDKs in Java toolchains
+
+For more details see https://docs.gradle.org/7.4/release-notes.html
+
+
 ------------------------------------------------------------
 Gradle 7.4
 ------------------------------------------------------------
@@ -129,7 +182,7 @@ Revision:     f0d9291c04b90b59445041eaa75b2ee744162586
 Kotlin:       1.5.31
 Groovy:       3.0.9
 Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
-JVM:          17.0.2 (GraalVM Community 17.0.2+8-jvmci-22.0-b05)
+JVM:          17.0.4 (GraalVM Community 17.0.4+7-jvmci-22.3-b01)
 OS:           Linux 5.10.104-linuxkit amd64
 
 
