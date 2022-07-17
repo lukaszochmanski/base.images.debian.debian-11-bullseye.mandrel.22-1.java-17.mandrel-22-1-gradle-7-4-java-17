@@ -38,7 +38,7 @@ FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-1
 $ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:###CI_COMMIT_TAG###
 
 # echo $0
-/bin/sh
+/bin/bash
 
 # pwd
 /home/gradle
