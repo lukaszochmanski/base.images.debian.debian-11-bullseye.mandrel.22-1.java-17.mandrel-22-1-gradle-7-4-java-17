@@ -2,6 +2,8 @@
 
 set +x
 set -e
+
+echo
 echo Verifying build image compatibility...
 
 if [ -n "$CODEBUILD_BUILD_IMAGE" ]
@@ -14,7 +16,7 @@ if [[ "$buildImage" == "$CODEBUILD_BUILD_IMAGE" ]]
 then
   echo "$buildImage"
   echo
-  echo "INFO: Build image status OK."
+  echo "INFO: Build image status OK"
 else
   echo 'ERROR: Verification failed. User requested strict checking.'
   echo 'ERORR: There seems to be a mismatch between versions of build images. You may override this behavior be editing buildspec.yml file.'
@@ -22,5 +24,6 @@ else
   echo "actual: $CODEBUILD_BUILD_IMAGE"
   echo "expected: $buildImage"
   echo 'Please update CODEBUILD_BUILD_IMAGE in the CodeBuild project to match the version declared in buildspec.yml'
+  echo 'To disable strict checking remove /home/image/check.sh command in your build script.'
   exit 1
 fi
