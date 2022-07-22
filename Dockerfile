@@ -1,4 +1,4 @@
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-17-gradle:1.0.0
+FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-17-gradle:1.0.1
 
 ARG AWS_DEFAULT_REGION="eu-central-1"
 ARG AWS_ACCOUNT_ID=964010022385
