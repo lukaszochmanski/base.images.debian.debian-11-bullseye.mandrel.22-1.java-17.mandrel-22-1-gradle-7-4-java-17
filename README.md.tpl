@@ -64,7 +64,7 @@ docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/d
 ```
 REPOSITORY																																		TAG				IMAGE ID	    SIZE
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4		###CI_COMMIT_TAG###			798a26ee64be	1.83GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-17-gradle								1.0.1			89b0555d5692	1.32GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-17-gradle								1.0.2			89b0555d5692	1.32GB
 ```
 
 ## 7. image based on source:

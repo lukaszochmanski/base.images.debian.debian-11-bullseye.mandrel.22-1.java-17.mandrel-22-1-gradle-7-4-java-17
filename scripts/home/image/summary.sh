@@ -19,4 +19,6 @@ groupId=$(gradle rootProjectGroupRaw -q | tr '.' '/')
 artifactId=$(gradle rootProjectNameRaw -q)
 version=$(gradle rootProjectVersionRaw -q)
 
+echo "[99%] Printing summary..."
+echo
 echo "docker image was published into ${HOST}/${DOCKER_REPOSITORY}/${groupId}/${artifactId}:${version}"
