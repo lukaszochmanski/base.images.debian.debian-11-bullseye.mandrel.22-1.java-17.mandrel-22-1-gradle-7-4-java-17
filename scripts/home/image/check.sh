@@ -14,13 +14,13 @@ if [[ "$buildImage" == "$CODEBUILD_BUILD_IMAGE" ]]
 then
   echo "$buildImage"
   echo
-  echo "INFO: Success. Used CodeBuild build image is OK."
+  echo "INFO: Status OK."
 else
   echo 'ERROR: Verification failed. User requested strict checking.'
   echo 'ERORR: There seems to be a mismatch between versions of build images. You may override this behavior be editing buildspec.yml file.'
   echo 'ERROR: CODEBUILD_BUILD_IMAGE is not compatible with buildspec.yml specification.'
   echo "actual: $CODEBUILD_BUILD_IMAGE"
   echo "expected: $buildImage"
-  echo 'please update CODEBUILD_BUILD_IMAGE in the CodeBuild project to match the version declared in buildspec.yml'
+  echo 'Please update CODEBUILD_BUILD_IMAGE in the CodeBuild project to match the version declared in buildspec.yml'
   exit 1
 fi
