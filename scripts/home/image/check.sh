@@ -18,6 +18,8 @@ then
 else
   echo 'ERROR: Verification failed.'
   echo 'ERROR: CODEBUILD_BUILD_IMAGE is not compatible with buildspec.yml specification.'
+  echo "actual: $CODEBUILD_BUILD_IMAGE"
+  echo "expected: $buildImage"
   echo 'please update CODEBUILD_BUILD_IMAGE in the CodeBuild project to match the version declared in buildspec.yml'
   exit 1
 fi

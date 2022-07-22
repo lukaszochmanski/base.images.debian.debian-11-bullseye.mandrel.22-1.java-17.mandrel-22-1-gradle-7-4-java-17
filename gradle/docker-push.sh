@@ -4,7 +4,7 @@ set +x
 set -e
 echo Buiding image...
 
-$(gradle rootProjectVersionRaw -q)
+PROJECT_VERSION=$(gradle rootProjectVersionRaw -q)
 if [[ "$PROJECT_VERSION" == *-SNAPSHOT ]]
 then
     echo "INFO: No git tag found for this commit."
