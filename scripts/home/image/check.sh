@@ -14,7 +14,7 @@ if [[ "$buildImage" == "$CODEBUILD_BUILD_IMAGE" ]]
 then
   echo "$buildImage"
   echo
-  echo "INFO: Build Image status OK."
+  echo "INFO: Build image status OK."
 else
   echo 'ERROR: Verification failed. User requested strict checking.'
   echo 'ERORR: There seems to be a mismatch between versions of build images. You may override this behavior be editing buildspec.yml file.'
