@@ -3,6 +3,7 @@
 set +x
 set -e
 
+echo
 echo "CODEBUILD_BUILD_NUMBER: $CODEBUILD_BUILD_NUMBER"
 
 IMAGE_TAG=$(git describe --tags)
@@ -22,4 +23,4 @@ version=$(gradle rootProjectVersionRaw -q)
 echo
 echo "[99%] Printing summary..."
 echo
-echo "docker image was published into ${HOST}/${DOCKER_REPOSITORY}/${groupId}/${artifactId}:${version}"
+echo "Docker image was published into ${HOST}/${DOCKER_REPOSITORY}/${groupId}/${artifactId}:${version}"
