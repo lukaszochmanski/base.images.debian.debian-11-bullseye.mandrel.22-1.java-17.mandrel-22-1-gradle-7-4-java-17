@@ -17,5 +17,5 @@ discardWarning () {
   rm output.tmp_file
 }
 
-aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $HOST > output.tmp_file
+aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $HOST 2> output.tmp_file
 discardWarning
