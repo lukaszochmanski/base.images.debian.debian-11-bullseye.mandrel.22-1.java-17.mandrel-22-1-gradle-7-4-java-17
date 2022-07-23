@@ -55,6 +55,7 @@ RUN /scripts/08-install-gradle.sh
 RUN /scripts/09-clean-apt-cache.sh
 RUN /scripts/10-import-rds-certificates.sh
 RUN /scripts/11-config-git.sh
+RUN rm -f /home/gradle/xx*
 
 # Stage 2
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim
@@ -133,7 +134,8 @@ RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && apt-get autoremove -y \
     && rm -rf /var/cache/apt/* \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && apt-get clean
+    && apt-get clean \
+    && rm -f /home/gradle/xx*
 
 WORKDIR /home/gradle
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]

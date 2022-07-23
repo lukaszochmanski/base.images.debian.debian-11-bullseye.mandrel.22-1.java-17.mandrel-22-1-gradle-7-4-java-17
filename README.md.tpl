@@ -73,7 +73,7 @@ https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/ba
 https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.graalvm.graal-22-1-jdk-17/browse?region=eu-central-1
 
 ```  
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.1.0
+FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.1.0
 ```
 
 ## 8. image details:
@@ -103,62 +103,45 @@ BUG_REPORT_URL="https://bugs.debian.org/"
 # printenv
 GRAALVM_HOME=/opt/graalvm
 ECR_URL=https://eu-central-1.console.aws.amazon.com/ecr/repositories
-HISTCONTROL=ignorespace:ignoredups
-JAVA_MAJOR_VERSION=17
-MAVEN_CONFIG=/root/.m2
-HISTSIZE=10000
-HOSTNAME=057a1caa7c7e
+HOSTNAME=40d34d5c68df
 LANGUAGE=en_US:en
 JAVA_HOME=/opt/graalvm
-GRADLE_HOME=
-HISTTIMEFORMAT=%F %T
+GRADLE_HOME=/opt/gradle
 AWS_DEFAULT_REGION=eu-central-1
 DOCKER_REPOSITORY=releases
 PWD=/home/gradle
-IMAGE_SOURCE=https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/
-BASH_FUNK_PREFIX=-
+IMAGE_SOURCE=https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4
 CI_COMMIT_TAG=
 HOME=/root
 CI_COMMIT_SHA=
 LANG=en_US.UTF-8
-HISTFILE=/root/.bash_funk_history
-LS_COLORS=rs=0:di=0;94:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 GRADLE_VERSION=7.4
-SPRING_DATASOURCE_URL=
-M2_HOME=/opt/maven
 TERM=xterm
 HOST=964010022385.dkr.ecr.eu-central-1.amazonaws.com
-SPRING_JPA_HIBERNATE_DDL_AUTO=
-MAVEN_HOME=/opt/maven
 AWS_ACCOUNT_ID=964010022385
-SHLVL=0
+SHLVL=1
 CI_COMMIT_BRANCH=
-BASH_FUNK_ROOT=/opt/bash-funk
 LC_ALL=en_US.UTF-8
-MAVEN_OPTS=-Xmx1024m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8
-SPRING_DATASOURCE_PASSWORD=hzME_LK%zFZNB<Er
-PATH=/opt/graalvm/bin:/opt/maven/bin:/opt/upx:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HISTIGNORE=&:?:??:clear:exit:pwd
-HISTFILESIZE=10000
+PATH=/opt/graalvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 DOWNLOADS=/downloads
-JAVA_VERSION=17.0.1+9-jvmci-22.0-b05
+DEBIAN_FRONTEND=noninteractive
+JAVA_VERSION=17.0.3+7
+_=/usr/bin/printenv
 
 # curl --version
-curl 7.74.0 (x86_64-pc-linux-gnu) libcurl/7.74.0 OpenSSL/1.1.1n zlib/1.2.11 brotli/1.0.9 libidn2/2.3.0 libpsl/0.21.0 (+libidn2/2.3.0) libssh2/1.9.0 nghttp2/1.43.0 librtmp/2.3
-Release-Date: 2020-12-09
-Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps mqtt pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp
-Features: alt-svc AsynchDNS brotli GSS-API HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM NTLM_WB PSL SPNEGO SSL TLS-SRP UnixSockets
+bash: curl: command not found
 
 # java -version
-openjdk version "17.0.4" 2022-07-19
-OpenJDK Runtime Environment GraalVM CE 22.3.0-dev (build 17.0.4+7-jvmci-22.3-b01)
-OpenJDK 64-Bit Server VM GraalVM CE 22.3.0-dev (build 17.0.4+7-jvmci-22.3-b01, mixed mode, sharing)
+openjdk version "17.0.3" 2022-04-19
+OpenJDK Runtime Environment Temurin-17.0.3+7 (build 17.0.3+7)
+OpenJDK 64-Bit Server VM Temurin-17.0.3+7 (build 17.0.3+7, mixed mode, sharing)
+root@40d34d5c68df:/home/gradle#
 
 # git version
 git version 2.30.2
 
 # docker --version
-Docker version 20.10.9, build c2ea9bc
+Docker version 20.10.11, build dea9396
 
 # gradle -version
 
@@ -182,12 +165,12 @@ Revision:     f0d9291c04b90b59445041eaa75b2ee744162586
 Kotlin:       1.5.31
 Groovy:       3.0.9
 Ant:          Apache Ant(TM) version 1.10.11 compiled on July 10 2021
-JVM:          17.0.4 (GraalVM Community 17.0.4+7-jvmci-22.3-b01)
+JVM:          17.0.3 (Eclipse Adoptium 17.0.3+7)
 OS:           Linux 5.10.104-linuxkit amd64
 
 
 # aws --version
-aws-cli/1.22.97 Python/3.9.2 Linux/5.10.104-linuxkit botocore/1.24.42
+aws-cli/2.7.18 Python/3.9.11 Linux/5.10.104-linuxkit exe/x86_64.debian.11 prompt/off
 
 # cat /home/gradle/.gradle/gradle.properties
 org.gradle.daemon=true
@@ -210,4 +193,25 @@ drwxr-xr-x 1 root root 4096 Apr 13 14:57 ..
 -rwxr-xr-x 1 root root 3771 Apr 14 08:44 .bashrc
 drwxr-xr-x 1 root root 4096 Apr 19 10:21 .gradle
 -rwxr-xr-x 1 root root  807 Apr 14 08:44 .profile
+```
+
+## 9. Sample diagnostics
+```bash
+java -version && echo
+gradle -version && echo
+docker --version && echo
+aws --version && echo
+alias la='ls -la' && echo
+la /usr/local/bin/containerd && echo
+/usr/local/bin/dockerd-entrypoint.sh 2> /dev/null && echo
+/home/aws/ecr/login.sh && echo
+docker images && echo
+rm -f /home/gradle/code-with-quarkus/code-with-quarkus.zip
+apt-get update -y
+apt-get install curl zip -y
+curl -O -J https://code.quarkus.io/d?e=io.quarkus:quarkus-resteasy -o /home/gradle/code-with-quarkus/
+unzip /home/gradle/code-with-quarkus/code-with-quarkus.zip
+/home/gradle/code-with-quarkus/mvnw package -Pnative -f /home/gradle/code-with-quarkus/pom.xml
+/home/gradle/code-with-quarkus/target/code-with-quarkus-1.0.0-SNAPSHOT-runner
+/scripts/07-test-quarkus.sh && echo
 ```
