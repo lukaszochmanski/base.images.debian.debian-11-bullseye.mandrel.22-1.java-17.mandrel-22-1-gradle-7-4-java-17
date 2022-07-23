@@ -110,18 +110,21 @@ RUN curl https://downloads.gradle.org/distributions/gradle-7.4-bin.zip > gradle.
 
 RUN ln -s /home/gradle/.gradle /root/.gradle
 
-RUN apt-get remove --no-install-recommends -y bc curl htop jq less mc procps vim xz-utils zip unzip -y
+RUN apt-get remove --no-install-recommends -y bc curl htop jq less mc procps vim xz-utils zip unzip
 RUN rm -rf /opt/upx
 RUN apt-get autoclean \
-    && apt-get autoremove \
+    && apt-get autoremove -y \
     && rm -rf /var/cache/apt/* \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get clean
 
 COPY scripts/home/docker/dockerd-entrypoint.sh /usr/local/bin/
 COPY scripts/home/ /home/
+RUN export PATH="${JAVA_HOME}/bin:${PATH}"
 RUN /home/aws/import-rds-certs.sh && \
     rm /home/aws/import-rds-certs.sh
+
+RUN /scripts/09-config-git.sh
 
 WORKDIR /home/gradle
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]

@@ -7,6 +7,8 @@ fi
 
 csplit -sk /home/aws/rds-combined-ca-bundle.pem "/-BEGIN CERTIFICATE-/" "{$(grep -c 'BEGIN CERTIFICATE' /home/aws/rds-combined-ca-bundle.pem | awk '{print $1 - 2}')}"
 
+export PATH="${JAVA_HOME}/bin:${PATH}"
+
 for CERT in xx*; do
     # extract a human-readable alias from the cert
     ALIAS=$(openssl x509 -noout -text -in $CERT |
