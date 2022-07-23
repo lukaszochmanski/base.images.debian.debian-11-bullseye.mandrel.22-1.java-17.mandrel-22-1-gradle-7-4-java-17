@@ -1,4 +1,4 @@
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-17-gradle:1.0.2
+FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.0.0
 
 ARG AWS_DEFAULT_REGION="eu-central-1"
 ARG AWS_ACCOUNT_ID=964010022385
@@ -102,8 +102,16 @@ RUN apt-get update \
 VOLUME /var/lib/docker
 #*********************** END  DOCKER  ****************************
 
-RUN $GRAALVM_HOME/bin/gu install native-image
+RUN curl https://downloads.gradle.org/distributions/gradle-7.4-bin.zip > gradle.zip \
+    && unzip -d /opt gradle.zip \
+    && mv /opt/gradle-7.4 /opt/gradle \
+    && ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
+    && rm gradle.zip
 
+RUN ln -s /home/gradle/.gradle /root/.gradle
+
+RUN apt-get remove --no-install-recommends -y bc curl htop jq less mc procps vim xz-utils zip unzip -y
+RUN rm -rf /opt/upx
 RUN apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/cache/apt/* \
