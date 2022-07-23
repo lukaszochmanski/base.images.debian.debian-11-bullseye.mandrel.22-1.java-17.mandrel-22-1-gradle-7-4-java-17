@@ -100,20 +100,39 @@ LABEL git.branch=${CI_COMMIT_BRANCH} \
       git.source=${IMAGE_SOURCE}
 
 COPY --from=stage1 /scripts/ /scripts/
-COPY scripts/ /scripts/ # 220K
+
+# 220K
+COPY scripts/ /scripts/
 COPY --from=stage1 /home/ /home/
-COPY scripts/home/ /home/ # 172K
+
+# 172K
+COPY scripts/home/ /home/
 COPY scripts/home/docker/dockerd-entrypoint.sh /usr/local/bin/
-COPY --from=stage1 /opt/graalvm/ /opt/graalvm/ # 369M
-COPY --from=stage1 /opt/gradle/ /opt/gradle/ # 124M
-COPY --from=stage1 /usr/local/aws-cli /usr/local/aws-cli # 173M
-COPY --from=stage1 /usr/local/bin/docker /usr/local/bin/docker # 51M
-COPY --from=stage1 /usr/local/bin/dockerd /usr/local/bin/dockerd # 62M
-COPY --from=stage1 /usr/local/bin/dind /usr/local/bin/dind # 34.0K
-COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd # 33M
+
+# 369M
+COPY --from=stage1 /opt/graalvm/ /opt/graalvm/
+
+# 124M
+COPY --from=stage1 /opt/gradle/ /opt/gradle/
+
+# 173M
+COPY --from=stage1 /usr/local/aws-cli /usr/local/aws-cli
+
+# 51M
+COPY --from=stage1 /usr/local/bin/docker /usr/local/bin/docker
+
+# 62M
+COPY --from=stage1 /usr/local/bin/dockerd /usr/local/bin/dockerd
+
+# 34.0K
+COPY --from=stage1 /usr/local/bin/dind /usr/local/bin/dind
+
+# 33M
+COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd
 
 SHELL ["/bin/bash", "-c"]
 
+# 276M
 RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && ln -s /home/gradle/.gradle /root/.gradle \
     && ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/bin/aws \
