@@ -62,7 +62,7 @@ docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/d
 
 ## 6. Docker images:
 ```
-REPOSITORY                                                                                                                                    TAG                    IMAGE ID       CREATED          SIZE
+REPOSITORY                                                                                                                                    TAG                    IMAGE ID       SIZE
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4   ###CI_COMMIT_TAG###                  685273e90e84   1.2GB
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17                               1.1.0                  a3ee0a15b742   836MB
 public.ecr.aws/docker/library/debian                                                                                                          stable-20220711-slim   e128f30d9b40   80.4MB
