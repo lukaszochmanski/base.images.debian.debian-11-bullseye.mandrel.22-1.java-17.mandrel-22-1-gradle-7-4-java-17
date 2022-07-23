@@ -1,6 +1,6 @@
 # base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
 
-last updated: Sat Jul 23 19:43:37 CEST 2022
+last updated: Sat Jul 23 19:47:39 CEST 2022
 &nbsp;
 
 &nbsp;
@@ -8,8 +8,8 @@ last updated: Sat Jul 23 19:43:37 CEST 2022
 Main branch:  
 ![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 
-Latest tag: 1.1.2  
-![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.1.2)  
+Latest tag: 1.1.3  
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.1.3)  
 &nbsp;
 
 &nbsp;
@@ -57,16 +57,15 @@ https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/96401002238
 
 ## 5. Image coordinates:
 ```  
-docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.1.2
+docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.1.3
 ```
 
 ## 6. Docker images:
 ```
 REPOSITORY                                                                                                                                    TAG                    IMAGE ID       CREATED          SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4   1.1.1                  685273e90e84   31 minutes ago   1.2GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17                               1.1.0                  a3ee0a15b742   2 hours ago      836MB
-public.ecr.aws/docker/library/eclipse-temurin                                                                                                 17-jre-alpine          14f272eacd5a   4 days ago       146MB
-public.ecr.aws/docker/library/debian                                                                                                          stable-20220711-slim   e128f30d9b40   11 days ago      80.4MB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4   1.1.3                  685273e90e84   1.2GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17                               1.1.0                  a3ee0a15b742   836MB
+public.ecr.aws/docker/library/debian                                                                                                          stable-20220711-slim   e128f30d9b40   80.4MB
 ```
 
 ## 7. image based on source:
@@ -80,7 +79,7 @@ FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-1
 
 ## 8. image details:
 ```bash
-$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.1.2
+$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.1.3
 
 # echo $0
 /bin/bash
