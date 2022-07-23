@@ -90,9 +90,6 @@ ENV DOWNLOADS=/downloads \
     GRAALVM_HOME=${GRAALVM_HOME} \
     GRADLE_HOME=${GRADLE_HOME} \
     GRADLE_VERSION=${GRADLE_VERSION} \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8 \
     JAVA_VERSION=${JAVA_VERSION} \
     DEBIAN_FRONTEND=${DEBIAN_FRONTEND} \
     PATH="${JAVA_HOME}/bin:${PATH}"
@@ -122,13 +119,7 @@ RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/bin/aws \
     && apt-get clean \
     && apt-get update -y \
-    && apt-get install --no-install-recommends -y locales g++ zlib1g-dev libfreetype6-dev git \
-    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
-    && locale-gen --purge en_US.UTF-8 \
-    && echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale \
-    && sed -i -e "s/# $LANG.*/$LANG UTF-8/" /etc/locale.gen \
-    && dpkg-reconfigure --frontend=noninteractive locales \
-    && update-locale LANG=$LANG \
+    && apt-get install --no-install-recommends -y g++ zlib1g-dev libfreetype6-dev git \
     && /scripts/11-config-git.sh \
     && apt-get autoclean \
     && apt-get autoremove -y \
