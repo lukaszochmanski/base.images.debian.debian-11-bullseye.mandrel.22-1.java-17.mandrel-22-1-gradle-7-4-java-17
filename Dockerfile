@@ -107,10 +107,10 @@ COPY scripts/home/docker/dockerd-entrypoint.sh /usr/local/bin/
 COPY --from=stage1 /opt/graalvm/ /opt/graalvm/ # 369M
 COPY --from=stage1 /opt/gradle/ /opt/gradle/ # 124M
 COPY --from=stage1 /usr/local/aws-cli /usr/local/aws-cli # 173M
-COPY --from=stage1 /usr/local/bin/docker /usr/local/bin/docker # 351M
-COPY --from=stage1 /usr/local/bin/dockerd /usr/local/bin/dockerd # 362M
+COPY --from=stage1 /usr/local/bin/docker /usr/local/bin/docker # 51M
+COPY --from=stage1 /usr/local/bin/dockerd /usr/local/bin/dockerd # 62M
 COPY --from=stage1 /usr/local/bin/dind /usr/local/bin/dind # 34.0K
-COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd # 333M
+COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd # 33M
 
 SHELL ["/bin/bash", "-c"]
 
