@@ -1,4 +1,4 @@
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.0.1
+FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.1.0
 
 ARG AWS_DEFAULT_REGION="eu-central-1"
 ARG AWS_ACCOUNT_ID=964010022385
