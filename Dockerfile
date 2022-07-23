@@ -15,6 +15,7 @@ ARG GRADLE_VERSION="7.4"
 ARG CI_COMMIT_BRANCH
 ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
+ARG DEBIAN_FRONTEND=noninteractive
 
 ENV DOWNLOADS=/downloads \
     AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
@@ -33,7 +34,8 @@ ENV DOWNLOADS=/downloads \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
-    JAVA_VERSION=${JAVA_VERSION}
+    JAVA_VERSION=${JAVA_VERSION} \
+    DEBIAN_FRONTEND=${DEBIAN_FRONTEND}
 
 LABEL git.branch=${CI_COMMIT_BRANCH} \
       git.commit=${CI_COMMIT_SHA} \
@@ -91,6 +93,7 @@ ENV DOWNLOADS=/downloads \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
     JAVA_VERSION=${JAVA_VERSION} \
+    DEBIAN_FRONTEND=${DEBIAN_FRONTEND} \
     PATH="${JAVA_HOME}/bin:${PATH}"
 
 LABEL git.branch=${CI_COMMIT_BRANCH} \
@@ -113,12 +116,10 @@ COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd
 
 SHELL ["/bin/bash", "-c"]
 
-RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle
-RUN ln -s /home/gradle/.gradle /root/.gradle
-RUN ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/bin/aws
-
-
-RUN apt-get clean \
+RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
+    && ln -s /home/gradle/.gradle /root/.gradle \
+    && ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/bin/aws \
+    && apt-get clean \
     && apt-get update -y \
     && apt-get install --no-install-recommends -y locales g++ zlib1g-dev libfreetype6-dev git \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
@@ -126,8 +127,13 @@ RUN apt-get clean \
     && echo -e 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' > /etc/default/locale \
     && sed -i -e "s/# $LANG.*/$LANG UTF-8/" /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
-    && update-locale LANG=$LANG 
-    && /scripts/11-config-git.sh
+    && update-locale LANG=$LANG \
+    && /scripts/11-config-git.sh \
+    && apt-get autoclean \
+    && apt-get autoremove -y \
+    && rm -rf /var/cache/apt/* \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && apt-get clean
 
 WORKDIR /home/gradle
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]
