@@ -62,9 +62,11 @@ docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/d
 
 ## 6. Docker images:
 ```
-REPOSITORY																																		TAG				IMAGE ID	    SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4		###CI_COMMIT_TAG###			798a26ee64be	1.83GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17									1.1.0			89b0555d5692	1.32GB
+REPOSITORY                                                                                                                                    TAG                    IMAGE ID       CREATED          SIZE
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4   1.1.1                  685273e90e84   31 minutes ago   1.2GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17                               1.1.0                  a3ee0a15b742   2 hours ago      836MB
+public.ecr.aws/docker/library/eclipse-temurin                                                                                                 17-jre-alpine          14f272eacd5a   4 days ago       146MB
+public.ecr.aws/docker/library/debian                                                                                                          stable-20220711-slim   e128f30d9b40   11 days ago      80.4MB
 ```
 
 ## 7. image based on source:

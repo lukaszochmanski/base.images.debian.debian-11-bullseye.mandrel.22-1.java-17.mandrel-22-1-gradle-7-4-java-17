@@ -134,8 +134,7 @@ RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && apt-get autoremove -y \
     && rm -rf /var/cache/apt/* \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && apt-get clean \
-    && rm -f /home/gradle/xx*
+    && apt-get clean
 
 WORKDIR /home/gradle
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]
