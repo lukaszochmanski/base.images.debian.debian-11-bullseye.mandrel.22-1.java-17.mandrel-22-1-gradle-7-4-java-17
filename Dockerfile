@@ -71,6 +71,7 @@ ARG GRADLE_VERSION="7.4"
 ARG CI_COMMIT_BRANCH
 ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
+ARG DEBIAN_FRONTEND=noninteractive
 
 ENV DOWNLOADS=/downloads \
     AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
@@ -104,11 +105,11 @@ COPY scripts/home/ /home/
 COPY scripts/home/docker/dockerd-entrypoint.sh /usr/local/bin/
 COPY --from=stage1 /opt/graalvm/ /opt/graalvm/
 COPY --from=stage1 /opt/gradle/ /opt/gradle/
-COPY --from=stage1 /opt/ /opt/
 COPY --from=stage1 /usr/local/aws-cli /usr/local/aws-cli
 COPY --from=stage1 /usr/local/bin/docker /usr/local/bin/docker
 COPY --from=stage1 /usr/local/bin/dockerd /usr/local/bin/dockerd
 COPY --from=stage1 /usr/local/bin/dind /usr/local/bin/dind
+COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd
 
 SHELL ["/bin/bash", "-c"]
 
@@ -126,9 +127,7 @@ RUN apt-get clean \
     && sed -i -e "s/# $LANG.*/$LANG UTF-8/" /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && update-locale LANG=$LANG 
-
-
-RUN /scripts/11-config-git.sh
+    && /scripts/11-config-git.sh
 
 WORKDIR /home/gradle
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]
