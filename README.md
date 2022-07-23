@@ -1,6 +1,6 @@
 # base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
 
-last updated: Fri Jul 22 16:22:44 CEST 2022
+last updated: Sat Jul 23 14:50:57 CEST 2022
 &nbsp;
 
 &nbsp;
@@ -8,8 +8,8 @@ last updated: Fri Jul 22 16:22:44 CEST 2022
 Main branch:  
 ![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 
-Latest tag: 1.0.10  
-![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.0.10)  
+Latest tag: 1.0.11  
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.0.11)  
 &nbsp;
 
 &nbsp;
@@ -57,28 +57,28 @@ https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/96401002238
 
 ## 5. Image coordinates:
 ```  
-docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.10
+docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.11
 ```
 
 ## 6. Docker images:
 ```
 REPOSITORY																																		TAG				IMAGE ID	    SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4		1.0.10			798a26ee64be	1.83GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-17-gradle								1.0.2			89b0555d5692	1.32GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4		1.0.11			798a26ee64be	1.83GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17									1.0.0			89b0555d5692	1.32GB
 ```
 
 ## 7. image based on source:
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.vegardit.graalvm-11-gradle/browse?region=eu-central-1
+https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/browse?region=eu-central-1
 
-https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/vegardit/graalvm-11-gradle
+https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.graalvm.graal-22-1-jdk-17/browse?region=eu-central-1
 
 ```  
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/vegardit/graalvm-11-gradle:1.0.1
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.0.0
 ```
 
 ## 8. image details:
 ```bash
-$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.10
+$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:1.0.11
 
 # echo $0
 /bin/bash
@@ -115,7 +115,7 @@ HISTTIMEFORMAT=%F %T
 AWS_DEFAULT_REGION=eu-central-1
 DOCKER_REPOSITORY=releases
 PWD=/home/gradle
-IMAGE_SOURCE=https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.vegardit.graalvm-17-maven
+IMAGE_SOURCE=https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/
 BASH_FUNK_PREFIX=-
 CI_COMMIT_TAG=
 HOME=/root
