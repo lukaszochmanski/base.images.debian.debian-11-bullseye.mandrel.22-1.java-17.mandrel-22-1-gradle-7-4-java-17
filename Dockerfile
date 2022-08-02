@@ -142,8 +142,11 @@ COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd
 
 SHELL ["/bin/bash", "-c"]
 
-# Git - 70MB
+# build-essential (10MB)
+# libz-dev
 # zlib1g-dev - 196MB
+# Git - 70MB
+# Total: 276 MB
 RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && ln -s /home/gradle/.gradle /root/.gradle \
     && ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/bin/aws \
