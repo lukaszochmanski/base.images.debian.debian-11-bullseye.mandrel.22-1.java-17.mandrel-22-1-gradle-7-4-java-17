@@ -139,7 +139,7 @@ RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/bin/aws \
     && apt-get clean \
     && apt-get update -y \
-    && apt-get install --no-install-recommends -y g++ zlib1g-dev libfreetype6-dev git \
+    && apt-get install --no-install-recommends -y build-essential libz-dev zlib1g-dev git \
     && /scripts/11-config-git.sh \
     && apt-get autoclean \
     && apt-get autoremove -y \
