@@ -7,7 +7,7 @@ GROUP_ID=$(gradle rootProjectGroupRaw -q | tr '.' '/')
 ARTIFACT_ID=$(gradle rootProjectNameRaw -q)
 IMAGE_TAG=$(gradle rootProjectVersionRaw -q)
 
-docker build -t "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test .
+docker build -t "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test . --squash
 docker run --rm -ti --privileged --entrypoint /bin/bash "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test
 docker image rm "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-test
 echo
