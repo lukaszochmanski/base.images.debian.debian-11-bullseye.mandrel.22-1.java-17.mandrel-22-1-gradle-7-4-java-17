@@ -1,5 +1,5 @@
 # Base image Stage 1
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.1.0 as stage1
+FROM public.ecr.aws/docker/library/debian:stable-20220711-slim as stage1
 
 ARG AWS_DEFAULT_REGION="eu-central-1"
 ARG AWS_ACCOUNT_ID=964010022385
@@ -16,6 +16,9 @@ ARG CI_COMMIT_BRANCH
 ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
 ARG DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
+ARG LC_ALL=C
+ARG BASE_LAYER_CACHE_KEY
 
 ENV DOWNLOADS=/downloads \
     AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
@@ -35,21 +38,26 @@ ENV DOWNLOADS=/downloads \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
     JAVA_VERSION=${JAVA_VERSION} \
-    DEBIAN_FRONTEND=${DEBIAN_FRONTEND}
+    DEBIAN_FRONTEND=${DEBIAN_FRONTEND} \
+    PATH="${JAVA_HOME}/bin:${PATH}"
 
 LABEL git.branch=${CI_COMMIT_BRANCH} \
       git.commit=${CI_COMMIT_SHA} \
       git.tag=${CI_COMMIT_TAG} \
       git.source=${IMAGE_SOURCE}
 
+USER root
+SHELL ["/bin/bash", "-c"]
+COPY scripts/install/ /scripts/
+COPY scripts/home/ /home/
+COPY scripts/home/docker/dockerd-entrypoint.sh /usr/local/bin/
+RUN /scripts/01-install-tools.sh
+RUN /scripts/02-install-packages.sh
+RUN . /scripts/03-download-mandrel.sh
+RUN . /scripts/04-install-native-image-tool.sh
 RUN /scripts/05-install-aws-cli.sh
-
 RUN /scripts/06-install-docker-cli.sh
 VOLUME /var/lib/docker
-COPY scripts/home/docker/dockerd-entrypoint.sh /usr/local/bin/
-COPY scripts/home/ /home/
-ENV PATH="${JAVA_HOME}/bin:${PATH}"
-
 #RUN /scripts/07-test-quarkus.sh
 RUN /scripts/08-install-gradle.sh
 RUN /scripts/09-clean-apt-cache.sh
