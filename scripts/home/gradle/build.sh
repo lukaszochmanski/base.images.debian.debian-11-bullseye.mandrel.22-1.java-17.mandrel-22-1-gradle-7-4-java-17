@@ -159,3 +159,5 @@ buildNativeImage () {
   -Dquarkus.container-image.registry="$HOST" \
   -Dquarkus.container-image.additional-tags=latest
 }
+
+buildNativeImage
