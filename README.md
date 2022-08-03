@@ -50,7 +50,7 @@ https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/pro
 &nbsp;
 
 ## 4. Amazon Elastic Container Registry page:
-https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/releases/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
+https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
 &nbsp;
 
 &nbsp;
@@ -62,7 +62,7 @@ docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/d
 
 ## 6. Docker images:
 ```
-REPOSITORY                                                                                                                                   TAG                    IMAGE ID       CREATED              SIZE
+REPOSITORY                                                                                                                                   TAG                    SIZE
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   1.0.0                  1.18GB
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
 public.ecr.aws/docker/library/debian                                                                                                         stable-20220711-slim   80.4MB

@@ -50,7 +50,7 @@ https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/pro
 &nbsp;
 
 ## 4. Amazon Elastic Container Registry page:
-https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/releases/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
+https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
 &nbsp;
 
 &nbsp;
@@ -62,7 +62,7 @@ docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/d
 
 ## 6. Docker images:
 ```
-REPOSITORY                                                                                                                                   TAG                    IMAGE ID       CREATED              SIZE
+REPOSITORY                                                                                                                                   TAG                    SIZE
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   ###CI_COMMIT_TAG###                  1.18GB
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
 public.ecr.aws/docker/library/debian                                                                                                         stable-20220711-slim   80.4MB
@@ -97,6 +97,37 @@ https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/ba
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim
 ```
 
+### 7.1. References
+https://github.com/vegardit/docker-graalvm-maven  
+
+https://hub.docker.com/r/vegardit/graalvm-maven  
+
+https://hub.docker.com/r/vegardit/graalvm-maven/tags  
+
+https://github.com/graalvm/mandrel/releases/tag/mandrel-22.2.0.0-Final  
+
+### 7.2. Prerequisites
+
+Mandrel's native-image depends on the following packages:  
+
+```
+freetype-devel
+gcc
+glibc-devel
+libstdc++-static
+zlib-devel
+```
+On Fedora/CentOS/RHEL they can be installed with:  
+
+`dnf install glibc-devel zlib-devel gcc freetype-devel libstdc++-static`  
+Note: The package might be called `glibc-static` or `libstdc++-devel` instead of `libstdc++-static` depending on your system.  
+If the system is missing `stdc++`, `gcc-c++` package is needed too.
+
+On Ubuntu-like systems with:  
+```bash
+apt install g++ zlib1g-dev libfreetype6-dev
+```
+
 ## 8. image details:
 ```bash
 $ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
@@ -124,25 +155,23 @@ BUG_REPORT_URL="https://bugs.debian.org/"
 # printenv
 GRAALVM_HOME=/opt/graalvm
 ECR_URL=https://eu-central-1.console.aws.amazon.com/ecr/repositories
-HOSTNAME=40d34d5c68df
-LANGUAGE=en_US:en
+HOSTNAME=39d8e4156349
 JAVA_HOME=/opt/graalvm
 GRADLE_HOME=/opt/gradle
 AWS_DEFAULT_REGION=eu-central-1
 DOCKER_REPOSITORY=releases
 PWD=/home/gradle
-IMAGE_SOURCE=https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
+IMAGE_SOURCE=https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4
 CI_COMMIT_TAG=
 HOME=/root
 CI_COMMIT_SHA=
-LANG=en_US.UTF-8
 GRADLE_VERSION=7.4
+GRADLE_USER_HOME=/home/root/.gradle
 TERM=xterm
 HOST=964010022385.dkr.ecr.eu-central-1.amazonaws.com
 AWS_ACCOUNT_ID=964010022385
 SHLVL=1
 CI_COMMIT_BRANCH=
-LC_ALL=en_US.UTF-8
 PATH=/opt/graalvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 DOWNLOADS=/downloads
 DEBIAN_FRONTEND=noninteractive
@@ -227,12 +256,66 @@ la /usr/local/bin/containerd && echo
 /usr/local/bin/dockerd-entrypoint.sh 2> /dev/null && echo
 /home/aws/ecr/login.sh && echo
 docker images && echo
-rm -f /home/gradle/code-with-quarkus/code-with-quarkus.zip
-apt-get update -y
-apt-get install curl zip -y
-curl -O -J https://code.quarkus.io/d?e=io.quarkus:quarkus-resteasy -o /home/gradle/code-with-quarkus/
-unzip /home/gradle/code-with-quarkus/code-with-quarkus.zip
-/home/gradle/code-with-quarkus/mvnw package -Pnative -f /home/gradle/code-with-quarkus/pom.xml
-/home/gradle/code-with-quarkus/target/code-with-quarkus-1.0.0-SNAPSHOT-runner
-/scripts/07-test-quarkus.sh && echo
 ```
+
+### 9.1. run quarkus with maven
+a sample script is available at the url:
+```bash
+cat /scripts/07-test-quarkus.sh
+```
+
+the content
+```bash
+alias la='ls -la'
+apt-get update -y
+apt-get install curl unzip -y
+mkdir /home/quarkus
+cd /home/quarkus
+rm -f /home/quarkus/code-with-quarkus.zip
+rm -rf /home/quarkus/code-with-quarkus
+curl -O -J https://code.quarkus.io/d?e=io.quarkus:quarkus-resteasy -o /home/quarkus/code-with-quarkus.zip
+unzip /home/quarkus/code-with-quarkus.zip -d /home/quarkus/
+rm -f /home/quarkus/code-with-quarkus.zip
+cd /home/quarkus/code-with-quarkus/
+/home/quarkus/code-with-quarkus/mvnw package -Pnative -f /home/quarkus/code-with-quarkus/pom.xml
+/home/quarkus/code-with-quarkus/target/code-with-quarkus-1.0.0-SNAPSHOT-runner
+```
+
+### 9.2. run quarkus with gradle
+You may convert the existing project into gradle using `gradle init` command as described later in this section.  
+However, before you start you will need 3 files, in order to make it work:
+* build.gradle
+* gradle.properties
+* settings.gradle
+
+The reson behind it is, that the gradle converter works with simple projects.  
+Unfortunately, Quarkus projects are not standard and they don't cooperate well.  
+I solved this problem, and I gave you the example that works. You may copy the files from the given git reposiotry.  
+Sample files are available at the url:  
+https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.red-hat.red-hat-8-5.quay-io.ubi-quarkus-mandrel.22-1.java-17.mandrel-gradle-7-4-java-17/browse/refs/tags/1.1.7/--/scripts/install/getting-started?region=eu-central-1  
+
+```bash
+alias la='ls -la'
+apt-get update -y
+apt-get install curl unzip -y
+mkdir /home/quarkus
+cd /home/quarkus
+rm -f /home/quarkus/code-with-quarkus.zip
+rm -rf /home/quarkus/code-with-quarkus
+curl -O -J https://code.quarkus.io/d?e=io.quarkus:quarkus-resteasy -o /home/quarkus/code-with-quarkus.zip
+unzip /home/quarkus/code-with-quarkus.zip -d /home/quarkus/
+rm -f /home/quarkus/code-with-quarkus.zip
+PROJECT_DIR=/home/quarkus/code-with-quarkus
+cd $PROJECT_DIR
+gradle init -p $PROJECT_DIR
+```
+now copy the files, as described previously, and start the build.
+```bash
+gradle build -x test -Dquarkus.package.type=native
+```
+when the build completes, you may run the image, which is located somewhere in /build/libs/ directory.
+```bash
+/home/quarkus/code-with-quarkus/build/libs/code-with-quarkus-1.0.0-SNAPSHOT-runner
+```
+
+## 10. Frequently Asked Questions (FAQ)
