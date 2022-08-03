@@ -3,7 +3,7 @@
 set +x
 set -e
 
-apt-get remove --no-install-recommends -y bc curl htop jq less mc procps vim xz-utils zip unzip iptables llvm
+apt-get remove --no-install-recommends -y bc curl htop jq less mc procps vim xz-utils zip unzip llvm
 rm -rf /opt/upx
 apt-get autoclean
 apt-get autoremove -y
