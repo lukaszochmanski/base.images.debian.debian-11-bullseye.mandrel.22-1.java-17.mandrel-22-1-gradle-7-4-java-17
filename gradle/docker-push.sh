@@ -18,4 +18,5 @@ else
   /home/gradle/summary.sh
   echo
   docker images
+  docker push 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:latest
 fi
