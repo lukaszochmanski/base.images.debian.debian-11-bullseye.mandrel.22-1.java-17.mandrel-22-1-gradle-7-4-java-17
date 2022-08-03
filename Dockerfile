@@ -140,19 +140,25 @@ COPY --from=stage1 /usr/local/bin/dind /usr/local/bin/dind
 # 33M
 COPY --from=stage1 /usr/local/bin/containerd /usr/local/bin/containerd
 
+# 8404K
+COPY --from=stage1 /usr/local/bin/docker-init /usr/local/bin/docker-init
+
 SHELL ["/bin/bash", "-c"]
 
 # build-essential (10MB)
-# libz-dev
+# libz-dev (0M)
 # zlib1g-dev - 196MB
+# iptables (0M)
+# runc 8404K
+# llvm (150MB)
 # Git - 70MB
-# Total: 276 MB
+# Total: 426 MB
 RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && ln -s /home/gradle/.gradle /root/.gradle \
     && ln -s /usr/local/aws-cli/v2/current/bin/aws /usr/bin/aws \
     && apt-get clean \
     && apt-get update -y \
-    && apt-get install --no-install-recommends -y build-essential libz-dev zlib1g-dev iptables llvm git \
+    && apt-get install --no-install-recommends -y build-essential libz-dev zlib1g-dev iptables runc git \
     && /scripts/11-config-git.sh \
     && apt-get autoclean \
     && apt-get autoremove -y \
