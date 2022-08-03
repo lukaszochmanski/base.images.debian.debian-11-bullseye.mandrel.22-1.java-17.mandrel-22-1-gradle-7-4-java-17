@@ -1,0 +1,70 @@
+ext {
+    awsDefaultRegion = System.properties['AWS_DEFAULT_REGION']
+    codeartifactRegion = awsDefaultRegion
+    codeartifactDomain = System.properties['AWS_CODEARTIFACT_DOMAIN']
+    codeartifactDomainOwner = System.properties['AWS_CODEARTIFACT_DOMAIN_OWNER']
+    codeartifactProfile = System.properties['AWS_CODEARTIFACT_PROFILE']
+    codeartifactUser = System.properties['AWS_CODEARTIFACT_USER']
+    codeartifactUrlBase = "https://${codeartifactDomain}-${codeartifactDomainOwner}.d.codeartifact.${codeartifactRegion}.amazonaws.com"
+    codeartifactDistributionUrlBase = "https://${codeartifactDomain}-${codeartifactDomainOwner}.d.codeartifact.${codeartifactRegion}.amazonaws.com"
+    codeartifactUrl = "${codeartifactUrlBase}/maven"
+    codeartifactDistributionUrl = "${codeartifactDistributionUrlBase}/maven"
+    codeartifactSnapshotsUrl = "${codeartifactUrl}/snapshots/"
+    codeartifactDistributionSnapshotsUrl = "${codeartifactDistributionUrl}/snapshots/"
+    codeartifactReleasesUrl = "${codeartifactUrl}/releases/"
+    codeartifactDistributionReleasesUrl = "${codeartifactDistributionUrl}/releases/"
+    codeartifactPass = System.env.CODEARTIFACT_AUTH_TOKEN
+    awsEcrDomainOwner = System.properties['AWS_ECR_DOMAIN_OWNER']
+    awsEcrReleases = "${awsEcrDomainOwner}.dkr.ecr.${awsDefaultRegion}.amazonaws.com/releases"
+    awsEcrSnapthots = "${awsEcrDomainOwner}.dkr.ecr.${awsDefaultRegion}.amazonaws.com/snapthots"
+}
+
+ext.RepoConfigurator = {
+    mavenLocal()
+    maven {
+        url codeartifactReleasesUrl
+        mavenContent {
+            releasesOnly()
+        }
+        credentials {
+            username codeartifactUser
+            password codeartifactPass
+        }
+    }
+    maven {
+        url codeartifactSnapshotsUrl
+        mavenContent {
+            snapshotsOnly()
+        }
+        credentials {
+            username codeartifactUser
+            password codeartifactPass
+        }
+    }
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+    gradlePluginPortal()
+}
+
+allprojects {
+    buildscript.repositories RepoConfigurator
+    initscript.repositories RepoConfigurator
+    repositories RepoConfigurator
+
+    afterEvaluate {
+        task sourcesJar(type: Jar) {
+            if (project.hasProperty('sourceSets')){
+                archiveClassifier = 'sources'
+                from sourceSets.main.allJava
+            }
+        }
+
+        task javadocJar(type: Jar) {
+            if (project.hasProperty('javadoc')){
+                archiveClassifier = 'javadoc'
+                from javadoc.destinationDir
+            }
+        }
+    }
+}

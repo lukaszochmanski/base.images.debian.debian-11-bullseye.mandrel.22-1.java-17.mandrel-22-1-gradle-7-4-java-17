@@ -161,4 +161,6 @@ RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && apt-get clean
 
 WORKDIR /home/gradle
+VOLUME /var/lib/docker
+SHELL ["/bin/bash", "-c", "source /home/gradle/.bash_aliases"]
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]
