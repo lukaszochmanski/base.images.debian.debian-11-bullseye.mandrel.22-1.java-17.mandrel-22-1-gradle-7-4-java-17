@@ -1,4 +1,4 @@
-# base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
+# base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
 
 last updated: ###TIMESTAMP###
 &nbsp;
@@ -6,10 +6,10 @@ last updated: ###TIMESTAMP###
 &nbsp;
 
 Main branch:  
-![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
+![]()
 
 Latest tag: ###CI_COMMIT_TAG###  
-![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiangxRXVqL1gyd29DNTlhQmZxYVVWUHJ1K0R4REk3TVRYeko2eE5POXd2SWtnUWhNdnZUb1Ntbi9vcjhmSk1FajEvMjZFVGU2bzQxM0RLL2p3eWJpS244PSIsIml2UGFyYW1ldGVyU3BlYyI6IjRQa2xBTnA4WW9XZEZjdWEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=###CI_COMMIT_TAG###)  
+![](&tag=###CI_COMMIT_TAG###)  
 &nbsp;
 
 &nbsp;
@@ -34,52 +34,51 @@ see compilation errors.
 
 ## 1. How to clone:
 ```bash
-git clone codecommit::eu-central-1://Blueid-id-developer@base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4 $AWS/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
+git clone codecommit::eu-central-1://Blueid-id-developer@base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17 $AWS/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
 ```
 
 ## 2. CodeCommit
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/browse?region=eu-central-1
+https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17/browse?region=eu-central-1
 &nbsp;
 
 &nbsp;
 
 ## 3. CodeBuild
-https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-11-bullseye-graalvm-ce-17-gradle-7-4-build-project/details?region=eu-central-1
+https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-11-bullseye-mandrel-17-gradle-7-4-build-project/details?region=eu-central-1
 &nbsp;
 
 &nbsp;
 
 ## 4. Amazon Elastic Container Registry page:
-https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/releases/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4
+https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/releases/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
 &nbsp;
 
 &nbsp;
 
 ## 5. Image coordinates:
 ```  
-docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:###CI_COMMIT_TAG###
+docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
 ```
 
 ## 6. Docker images:
 ```
 REPOSITORY                                                                                                                                    TAG                    IMAGE ID       SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4   ###CI_COMMIT_TAG###                  685273e90e84   1.2GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17                               1.1.0                  a3ee0a15b742   836MB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   ###CI_COMMIT_TAG###                  685273e90e84   1.2GB
 public.ecr.aws/docker/library/debian                                                                                                          stable-20220711-slim   e128f30d9b40   80.4MB
 ```
 
 ## 7. image based on source:
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4/browse?region=eu-central-1
+https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17/browse?region=eu-central-1
 
 https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.graalvm.graal-22-1-jdk-17/browse?region=eu-central-1
 
 ```  
-FROM 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/graalvm/graal-22-1-jdk-17:1.1.0
+FROM public.ecr.aws/docker/library/debian:stable-20220711-slim
 ```
 
 ## 8. image details:
 ```bash
-$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:###CI_COMMIT_TAG###
+$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
 
 # echo $0
 /bin/bash
@@ -111,7 +110,7 @@ GRADLE_HOME=/opt/gradle
 AWS_DEFAULT_REGION=eu-central-1
 DOCKER_REPOSITORY=releases
 PWD=/home/gradle
-IMAGE_SOURCE=https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4
+IMAGE_SOURCE=https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 CI_COMMIT_TAG=
 HOME=/root
 CI_COMMIT_SHA=

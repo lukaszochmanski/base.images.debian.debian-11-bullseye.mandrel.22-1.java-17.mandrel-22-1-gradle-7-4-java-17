@@ -3,7 +3,7 @@ plugins {
     id "com.palantir.docker-run" version "0.22.1"
 }
 
-group 'base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17'
+group 'base/images/debian/debian-11-bullseye/mandrel/22-1/java-17'
 
 docker {
     def host = System.getenv('HOST')

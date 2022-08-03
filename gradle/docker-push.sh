@@ -15,7 +15,7 @@ then
 else
   gradle dockerPush
   echo
-  docker push 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/gradle/gradle-7-4/graalvm-ce-17/graalvm-17-gradle-7-4:latest
+  docker push 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:latest
   echo
   /home/gradle/summary.sh
   echo
