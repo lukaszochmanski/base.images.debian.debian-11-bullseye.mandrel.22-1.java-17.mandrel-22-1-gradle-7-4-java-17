@@ -23,7 +23,7 @@ Before you start it is assumed that you read and completed the
 
 The document contains instruction how to configure access to our binary repository (CodeArtifact).  
 Without access to CodeArtifact, you will be unable to compile any java project. Most java projects use libraries,  
-which are stored in there. If you don't set up the Multi-Factor authentication, the credentials, and the right repository URL  
+which are stored there. If you don't set up the Multi-Factor authentication, the credentials, and the right repository URL  
 in your operating system, you may see compilation errors or other type of errors during build process.
 &nbsp;
 
