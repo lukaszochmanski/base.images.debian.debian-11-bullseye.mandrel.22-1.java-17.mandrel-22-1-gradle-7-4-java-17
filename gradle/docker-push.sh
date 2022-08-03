@@ -14,5 +14,8 @@ then
     echo "INFO: to avoid this message, execute: git bump locally."
 else
   gradle dockerPush
+  echo
   /home/gradle/summary.sh
+  echo
+  docker images
 fi
