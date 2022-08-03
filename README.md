@@ -21,10 +21,10 @@ Latest tag: 1.0.0
 Before you start it is assumed that you read and completed the
 [Developer Guide](https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/documentation.developer-documentation/browse?region=eu-central-1)
 
-The document contains instruction how to configure access to our binary repository (CodeArtifact). Without access to  
-CodeArtifact, you will be unable to compile any java project. Most java projects use libraries, which are stored in this  
-repository. If you don't set up Multi-Factor authentication, credentials, and repository URL in your system, you will  
-see compilation errors.
+The document contains instruction how to configure access to our binary repository (CodeArtifact).  
+Without access to CodeArtifact, you will be unable to compile any java project. Most java projects use libraries,  
+which are stored in there. If you don't set up the Multi-Factor authentication, the credentials, and the right repository URL  
+in your operating system, you may see compilation errors or other type of errors during build process.
 &nbsp;
 
 &nbsp;
