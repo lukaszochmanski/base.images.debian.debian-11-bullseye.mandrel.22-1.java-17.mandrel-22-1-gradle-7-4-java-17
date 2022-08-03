@@ -1,6 +1,6 @@
-# Debian-based Mandrel image for Quarkus projects
+# Debian-based Mandrel image optimized for building Quarkus projects
 
-last updated: Wed Aug  3 16:07:25 CEST 2022
+last updated: Wed Aug  3 17:27:15 CEST 2022
 &nbsp;
 
 &nbsp;
@@ -8,8 +8,8 @@ last updated: Wed Aug  3 16:07:25 CEST 2022
 Main branch:  
 ![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 
-Latest tag: 1.0.1  
-![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.0.1)  
+Latest tag: 1.0.2  
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.0.2)  
 &nbsp;
 
 &nbsp;
@@ -57,13 +57,13 @@ https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/96401002238
 
 ## 5. Image coordinates:
 ```  
-docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:1.0.1
+docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:1.0.2
 ```
 
 ## 6. Docker images:
 ```
 REPOSITORY                                                                                                                                   TAG                    SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   1.0.1                  1.18GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   1.0.2                  1.18GB
 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
 public.ecr.aws/docker/library/debian                                                                                                         stable-20220711-slim   80.4MB
 ```
@@ -97,7 +97,7 @@ https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/ba
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim
 ```
 
-### 7.1. References
+##### 7.1. References
 https://github.com/vegardit/docker-graalvm-maven  
 
 https://hub.docker.com/r/vegardit/graalvm-maven  
@@ -106,9 +106,26 @@ https://hub.docker.com/r/vegardit/graalvm-maven/tags
 
 https://github.com/graalvm/mandrel/releases/tag/mandrel-22.2.0.0-Final  
 
-### 7.2. Prerequisites
+##### 7.2. Mandrel
 
-Mandrel's native-image depends on the following packages:  
+**Mandrel 22.2.0.0-Final** is a downstream distribution of the **GraalVM** community edition 22.2.0.  
+Mandrel's main goal is to provide a native-image release specifically to support Quarkus.  
+The aim is to align the native-image capabilities from GraalVM with OpenJDK and Red Hat Enterprise Linux libraries to improve maintainability for native Quarkus applications.  
+
+**How Does Mandrel Differ From Graal**  
+Mandrel releases are built from a code base derived from the upstream GraalVM code base, with only minor changes but some significant exclusions.  
+They support the same native image capability as GraalVM with no significant changes to functionality.  
+They do not include support for Polyglot programming via the Truffle interpreter and compiler framework.  
+In consequence, it is not possible to extend Mandrel by downloading languages from the Truffle language catalogue.  
+
+Mandrel is also built slightly differently to GraalVM, using the standard OpenJDK project release of jdk11u.  
+This means it does not profit from a few small enhancements that Oracle have added to the version of OpenJDK used to build their own GraalVM downloads.  
+Most of these enhancements are to the JVMCI module that allows the Graal compiler to be run inside OpenJDK.  
+The others are small cosmetic changes to behaviour.  
+These enhancements may in some cases cause minor differences in the progress of native image generation.  
+They should not cause the resulting images themselves to execute in a noticeably different manner.  
+
+Mandrel's `native-image` depends on the following packages:  
 
 ```
 freetype-devel
@@ -119,9 +136,11 @@ zlib-devel
 ```
 On Fedora/CentOS/RHEL they can be installed with:  
 
-`dnf install glibc-devel zlib-devel gcc freetype-devel libstdc++-static`  
-Note: The package might be called `glibc-static` or `libstdc++-devel` instead of `libstdc++-static` depending on your system.  
-If the system is missing `stdc++`, `gcc-c++` package is needed too.
+```bash
+dnf install glibc-devel zlib-devel gcc freetype-devel libstdc++-static
+```
+> Note: The package might be called `glibc-static` or `libstdc++-devel` instead of `libstdc++-static` depending on your system.  
+> If the system is missing `stdc++`, `gcc-c++` package is needed too.
 
 On Ubuntu-like systems with:  
 ```bash
@@ -130,7 +149,7 @@ apt install g++ zlib1g-dev libfreetype6-dev
 
 ## 8. image details:
 ```bash
-$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:1.0.1
+$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:1.0.2
 
 # echo $0
 /bin/bash
@@ -245,7 +264,7 @@ drwxr-xr-x 1 root root 4096 Apr 19 10:21 .gradle
 -rwxr-xr-x 1 root root  807 Apr 14 08:44 .profile
 ```
 
-## 9. Sample diagnostics
+## 9. Quick start
 ```bash
 java -version && echo
 gradle -version && echo
@@ -258,7 +277,7 @@ la /usr/local/bin/containerd && echo
 docker images && echo
 ```
 
-### 9.1. run quarkus with maven
+### 9.1. Run Quarkus with Maven
 a sample script is available at the url:
 ```bash
 cat /scripts/07-test-quarkus.sh
@@ -281,7 +300,7 @@ cd /home/quarkus/code-with-quarkus/
 /home/quarkus/code-with-quarkus/target/code-with-quarkus-1.0.0-SNAPSHOT-runner
 ```
 
-### 9.2. run quarkus with gradle
+### 9.2. Run Quarkus with Gradle
 You may convert the existing project into gradle using `gradle init` command as described later in this section.  
 However, before you start you will need 3 files, in order to make it work:
 * build.gradle
