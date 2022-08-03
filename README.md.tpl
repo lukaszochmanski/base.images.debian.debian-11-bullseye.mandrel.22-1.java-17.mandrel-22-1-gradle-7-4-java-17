@@ -1,4 +1,4 @@
-# base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
+# Debian-based Mandrel image for Quarkus projects
 
 last updated: ###TIMESTAMP###
 &nbsp;
@@ -6,10 +6,10 @@ last updated: ###TIMESTAMP###
 &nbsp;
 
 Main branch:  
-![]()
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 
 Latest tag: ###CI_COMMIT_TAG###  
-![](&tag=###CI_COMMIT_TAG###)  
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=###CI_COMMIT_TAG###)  
 &nbsp;
 
 &nbsp;
@@ -44,7 +44,7 @@ https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/ba
 &nbsp;
 
 ## 3. CodeBuild
-https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-11-bullseye-mandrel-17-gradle-7-4-build-project/details?region=eu-central-1
+https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-11-bullseye-mandrel-22-1-gradle-7-4-java-17-build-project/details?region=eu-central-1
 &nbsp;
 
 &nbsp;
@@ -62,9 +62,30 @@ docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/d
 
 ## 6. Docker images:
 ```
-REPOSITORY                                                                                                                                    TAG                    IMAGE ID       SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   ###CI_COMMIT_TAG###                  685273e90e84   1.2GB
-public.ecr.aws/docker/library/debian                                                                                                          stable-20220711-slim   e128f30d9b40   80.4MB
+REPOSITORY                                                                                                                                   TAG                    IMAGE ID       CREATED              SIZE
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   ###CI_COMMIT_TAG###                  1.18GB
+964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
+public.ecr.aws/docker/library/debian                                                                                                         stable-20220711-slim   80.4MB
+```
+
+```
+### Mandrel Image
+### Debian Slim
+### Debian based Mandrel Official Image
+### base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
+
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   00-slim            80MB   (80MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   01-clean           80MB   (0MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   02-graalvm         465MB  (385MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   03-gradle          594MB  (129MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   04-aws-cli         753MB  (159MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   05-docker-cli      805MB  (52MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   06-dockerd         870MB  (65MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   07-containerd      904MB  (34MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   08-build-essential
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   09-libz-dev
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   10-zlib1g-dev      1.11GB (196MB)
+debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   11-git             1.18GB (70MB)
 ```
 
 ## 7. image based on source:
