@@ -4,7 +4,7 @@ set +x
 set -e
 
 echo
-echo Verifying build image compatibility...
+echo [1%] Verifying build image compatibility...
 
 if [ -n "$CODEBUILD_BUILD_IMAGE" ]
 then
