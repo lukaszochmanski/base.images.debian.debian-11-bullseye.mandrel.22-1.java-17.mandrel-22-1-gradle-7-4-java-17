@@ -5,7 +5,7 @@ set -e
 
 echo
 echo [1%] Verifying build image compatibility...
-
+echo
 if [ -n "$CODEBUILD_BUILD_IMAGE" ]
 then
   echo "CODEBUILD_BUILD_IMAGE (The CodeBuild build image identifier):"
