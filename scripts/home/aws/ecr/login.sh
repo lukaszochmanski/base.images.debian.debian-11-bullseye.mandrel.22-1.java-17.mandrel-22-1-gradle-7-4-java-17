@@ -6,7 +6,7 @@ set -e
 discardWarning () {
   if grep -Fq "Login Succeeded" output.tmp_file ;
   then
-    echo "ECR Login Succeeded"
+    echo "[3%] ECR Login Succeeded"
   else
     echo "ECR Login Failed"
     cat output.tmp_file
