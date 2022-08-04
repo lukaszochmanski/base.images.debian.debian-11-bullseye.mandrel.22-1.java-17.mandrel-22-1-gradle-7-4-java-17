@@ -14,6 +14,11 @@ Latest tag: ###CI_COMMIT_TAG###
 
 &nbsp;
 
+## About
+Mandrel focuses on GraalVM's native-image component in order to provide an easy way for Quarkus users to generate native images for their applications.  
+Developers using Quarkus should be able to go all the way from Java source code to lean, native, platform-dependent applications running on Linux.  
+This capability is vital for deploying to containers in a cloud-native application development model. 
+
 ## Before you start
 
 ### Gradle configuration
