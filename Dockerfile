@@ -16,7 +16,6 @@ ARG CI_COMMIT_BRANCH
 ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
 ARG DEBIAN_FRONTEND=noninteractive
-ARG DEBIAN_FRONTEND=noninteractive
 ARG LC_ALL=C
 ARG BASE_LAYER_CACHE_KEY
 
@@ -74,7 +73,7 @@ ARG AWS_ACCOUNT_ID=964010022385
 ARG HOST="964010022385.dkr.ecr.eu-central-1.amazonaws.com"
 ARG DOCKER_REPOSITORY="releases"
 ARG ECR_URL="https://eu-central-1.console.aws.amazon.com/ecr/repositories"
-ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4"
+ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17"
 ARG JAVA_VERSION="17.0.3+7"
 ARG JAVA_HOME="/opt/graalvm"
 ARG GRAALVM_HOME="/opt/graalvm"
@@ -110,13 +109,7 @@ LABEL git.branch=${CI_COMMIT_BRANCH} \
       git.tag=${CI_COMMIT_TAG} \
       git.source=${IMAGE_SOURCE}
 
-COPY --from=stage1 /scripts/ /scripts/
-
-# 220K
-COPY scripts/ /scripts/
-COPY --from=stage1 /home/ /home/
-
-# 172K
+COPY scripts/install/ /scripts/
 COPY scripts/home/ /home/
 COPY scripts/home/docker/dockerd-entrypoint.sh /usr/local/bin/
 
