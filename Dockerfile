@@ -56,6 +56,7 @@ RUN /scripts/02-install-packages.sh
 RUN . /scripts/03-download-mandrel.sh
 RUN . /scripts/04-install-native-image-tool.sh
 RUN /scripts/05-install-aws-cli.sh
+RUN /scripts/06-download-docker-cli.sh
 RUN /scripts/06-install-docker-cli.sh
 VOLUME /var/lib/docker
 #RUN /scripts/07-test-quarkus.sh
@@ -159,6 +160,7 @@ RUN ln -s /opt/gradle/bin/gradle /usr/bin/gradle \
     && apt-get clean \
     && apt-get update -y \
     && apt-get install --no-install-recommends -y bc ca-certificates build-essential libz-dev zlib1g-dev iptables runc git \
+    && /scripts/06-install-docker-cli.sh \
     && /scripts/11-config-git.sh \
     && apt-get autoclean \
     && apt-get autoremove -y \
