@@ -16,5 +16,5 @@ then
   exit 1
 else
   echo
-  echo "CodeArtifact Login Succeeded"
+  echo "[5%] CodeArtifact Login Succeeded"
 fi
