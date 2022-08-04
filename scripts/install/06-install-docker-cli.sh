@@ -3,6 +3,9 @@
 set +x
 set -e
 
+groupadd docker
+usermod -aG docker root
+
 # set up subuid/subgid so that "--userns-remap=default" works out-of-the-box
 addgroup dockremap
 useradd -g dockremap dockremap
