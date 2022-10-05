@@ -39,11 +39,11 @@ in your operating system, you may see compilation errors or other type of errors
 
 ## 1. How to clone:
 ```bash
-git clone codecommit::eu-central-1://Blueid-id-developer@base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17 $AWS/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
+git clone git@github.com:lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17.git
 ```
 
-## 2. CodeCommit
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17/browse?region=eu-central-1
+## 2. GitHub repository URL
+https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 &nbsp;
 
 &nbsp;
@@ -62,14 +62,14 @@ https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/96401002238
 
 ## 5. Image coordinates:
 ```  
-docker pull 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
+docker pull ###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
 ```
 
 ## 6. Docker images:
 ```
 REPOSITORY                                                                                                                                   TAG                    SIZE
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   ###CI_COMMIT_TAG###                  1.18GB
-964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
+###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   ###CI_COMMIT_TAG###                  1.18GB
+###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
 public.ecr.aws/docker/library/debian                                                                                                         stable-20220711-slim   80.4MB
 ```
 
@@ -154,7 +154,7 @@ apt install g++ zlib1g-dev libfreetype6-dev
 
 ## 8. image details:
 ```bash
-$ docker run -it --entrypoint /bin/bash 964010022385.dkr.ecr.eu-central-1.amazonaws.com/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
+$ docker run -it --entrypoint /bin/bash ###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
 
 # echo $0
 /bin/bash
@@ -191,7 +191,7 @@ HOME=/root
 CI_COMMIT_SHA=
 GRADLE_VERSION=7.4
 TERM=xterm
-HOST=964010022385.dkr.ecr.eu-central-1.amazonaws.com
+HOST=###HOST###
 AWS_ACCOUNT_ID=964010022385
 SHLVL=1
 CI_COMMIT_BRANCH=
