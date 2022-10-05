@@ -1,15 +1,19 @@
 #!/usr/bin/env zsh
 
 #login
-cd $AWS/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17 || exit
-HOST=964010022385.dkr.ecr.eu-central-1.amazonaws.com
-GROUP_ID=$(gradle rootProjectGroupRaw -q | tr '.' '/')
-ARTIFACT_ID=$(gradle rootProjectNameRaw -q)
-IMAGE_TAG=$(gradle rootProjectVersionRaw -q)
+cd $GITHUB/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17 || exit
+DOCKER_HUB_HOST=ochmanskide
+#GROUP_ID=$(gradle rootProjectGroupRaw -q)
+#ARTIFACT_ID=$(gradle rootProjectNameRaw -q)
+#IMAGE_TAG=$(gradle rootProjectVersionRaw -q)
 
-docker build -t "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-slim . --squash
+GROUP_ID='base.images.debian.debian-11-bullseye.mandrel.22-1.java-17'
+ARTIFACT_ID='mandrel-22-1-gradle-7-4-java-17'
+IMAGE_TAG=$(gradle printVersion -q)
+
+docker build -t "$DOCKER_HUB_HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-slim . # --squash
 docker run --rm -ti --privileged --entrypoint /bin/bash "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-slim
-docker image rm "$HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-slim
+docker image rm "$DOCKER_HUB_HOST"/"$GROUP_ID"/"$ARTIFACT_ID":$IMAGE_TAG-slim
 echo
 
 if [[ "$IMAGE_TAG" == *-SNAPSHOT ]]
@@ -19,5 +23,5 @@ else
   export DOCKER_REPOSITORY=''
 fi
 
-echo "docker build -t $HOST/$DOCKER_REPOSITORY$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG ."
-echo "docker push $HOST/$DOCKER_REPOSITORY$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG"
+echo "docker build -t $DOCKER_HUB_HOST/$DOCKER_REPOSITORY$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG ."
+echo "docker push $DOCKER_HUB_HOST/$DOCKER_REPOSITORY$GROUP_ID/$ARTIFACT_ID:$IMAGE_TAG"

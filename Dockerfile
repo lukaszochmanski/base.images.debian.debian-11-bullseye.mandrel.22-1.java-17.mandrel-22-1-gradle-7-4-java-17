@@ -2,7 +2,7 @@
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim as stage1
 
 ARG DOCKER_HUB_URL=https://hub.docker.com/repository/docker/
-ARG HOSTNAME=ochmanskide
+ARG DOCKER_HUB_HOST=ochmanskide
 ARG IMAGE_SOURCE="https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17"
 ARG JAVA_VERSION="17.0.3+7"
 ARG JAVA_HOME="/opt/graalvm"
@@ -17,7 +17,7 @@ ARG LC_ALL=C
 ARG BASE_LAYER_CACHE_KEY
 
 ENV DOWNLOADS=/downloads \
-    HOST=${HOST} \
+    DOCKER_HUB_HOST=${DOCKER_HUB_HOST} \
     DOCKER_HUB_URL=${DOCKER_HUB_URL} \
     IMAGE_SOURCE=${IMAGE_SOURCE} \
     CI_COMMIT_BRANCH=${CI_COMMIT_BRANCH} \
@@ -63,7 +63,7 @@ RUN rm -f /home/gradle/xx*
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim
 
 ARG DOCKER_HUB_URL=https://hub.docker.com/repository/docker/
-ARG HOSTNAME=ochmanskide
+ARG DOCKER_HUB_HOST=ochmanskide
 ARG IMAGE_SOURCE="https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17"
 ARG JAVA_VERSION="17.0.3+7"
 ARG JAVA_HOME="/opt/graalvm"
@@ -76,7 +76,7 @@ ARG CI_COMMIT_TAG
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV DOWNLOADS=/downloads \
-    HOST=${HOST} \
+    DOCKER_HUB_HOST=${DOCKER_HUB_HOST} \
     DOCKER_HUB_URL=${DOCKER_HUB_URL} \
     IMAGE_SOURCE=${IMAGE_SOURCE} \
     CI_COMMIT_BRANCH=${CI_COMMIT_BRANCH} \

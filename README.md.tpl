@@ -179,7 +179,7 @@ BUG_REPORT_URL="https://bugs.debian.org/"
 # printenv
 GRAALVM_HOME=/opt/graalvm
 DOCKER_HUB_URL=https://hub.docker.com/repository/docker/
-HOSTNAME=ochmanskide
+DOCKER_HOST=ochmanskide
 JAVA_HOME=/opt/graalvm
 GRADLE_HOME=/opt/gradle
 DOCKER_REPOSITORY=releases
