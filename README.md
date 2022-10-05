@@ -1,6 +1,6 @@
 # Debian-based Mandrel image optimized for building Quarkus projects
 
-last updated: Wed Oct  5 14:36:53 CEST 2022
+last updated: Wed Oct  5 14:57:54 CEST 2022
 &nbsp;
 
 &nbsp;
@@ -8,8 +8,8 @@ last updated: Wed Oct  5 14:36:53 CEST 2022
 Main branch:  
 ![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 
-Latest tag: 1.0.14  
-![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.0.14)  
+Latest tag: 1.0.15  
+![](https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiRVhoVDhzdnBrNzdQWVBrU0t6L01rU1hjSmYybm90NjVRNGFVK3c0dTNNYis5UnVuSTlHVEZ5M0dPSktoK1JaVXhOdWJkc1paYjdVM1lXOW1iTG94SHFZPSIsIml2UGFyYW1ldGVyU3BlYyI6IjFZV2pOditTMzBlMFVnU1AiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&tag=1.0.15)  
 &nbsp;
 
 &nbsp;
@@ -48,28 +48,28 @@ https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel
 
 &nbsp;
 
-## 3. CodeBuild
-https://eu-central-1.console.aws.amazon.com/codesuite/codebuild/964010022385/projects/base-images-debian-11-bullseye-mandrel-22-1-gradle-7-4-java-17-build-project/details?region=eu-central-1
+## 3. Build Pipeline
+https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 &nbsp;
 
 &nbsp;
 
-## 4. Amazon Elastic Container Registry page:
-https://eu-central-1.console.aws.amazon.com/ecr/repositories/private/964010022385/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
+## 4. DockerHub page:
+https://hub.docker.com/repository/docker/ochmanskide/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 &nbsp;
 
 &nbsp;
 
 ## 5. Image coordinates:
 ```  
-docker pull ###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:1.0.14
+docker pull ###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:1.0.15
 ```
 
 ## 6. Docker images:
 ```
 REPOSITORY                                                                                                                                   TAG                    SIZE
-###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   1.0.14                  1.18GB
-###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
+ochmanskide/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17   1.0.15                  1.18GB
+ochmanskide/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17   latest                 1.18GB
 public.ecr.aws/docker/library/debian                                                                                                         stable-20220711-slim   80.4MB
 ```
 
@@ -94,9 +94,7 @@ debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   11-git             1.18GB (
 ```
 
 ## 7. image based on source:
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17/browse?region=eu-central-1
-
-https://eu-central-1.console.aws.amazon.com/codesuite/codecommit/repositories/base.images.debian.debian-11-bullseye.graalvm.graal-22-1-jdk-17/browse?region=eu-central-1
+https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 
 ```  
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim
@@ -154,7 +152,7 @@ apt install g++ zlib1g-dev libfreetype6-dev
 
 ## 8. image details:
 ```bash
-$ docker run -it --entrypoint /bin/bash ###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:1.0.14
+$ docker run -it --entrypoint /bin/bash ochmanskide/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17:1.0.15
 
 # echo $0
 /bin/bash
@@ -185,7 +183,7 @@ GRADLE_HOME=/opt/gradle
 AWS_DEFAULT_REGION=eu-central-1
 DOCKER_REPOSITORY=releases
 PWD=/home/gradle
-IMAGE_SOURCE=https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.gradle.gradle-7-4.graalvm-ce-17.graalvm-17-gradle-7-4
+IMAGE_SOURCE=https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 CI_COMMIT_TAG=
 HOME=/root
 CI_COMMIT_SHA=
