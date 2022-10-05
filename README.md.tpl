@@ -62,7 +62,7 @@ https://hub.docker.com/repository/docker/ochmanskide/base.images.debian.debian-1
 
 ## 5. Image coordinates:
 ```  
-docker pull ###HOST###/base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
+docker pull ochmanskide/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17:###CI_COMMIT_TAG###
 ```
 
 ## 6. Docker images:
@@ -78,6 +78,8 @@ public.ecr.aws/docker/library/debian                                            
 ### Debian Slim
 ### Debian based Mandrel Official Image
 ### base/images/debian/debian-11-bullseye/mandrel/22-1/java-17/mandrel-22-1-gradle-7-4-java-17
+### base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
+### ochmanskide/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 
 debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   00-slim            80MB   (80MB)
 debian-11-bullseye/mandrel-22-1-gradle-7-4-java-17   01-clean           80MB   (0MB)
@@ -176,21 +178,19 @@ BUG_REPORT_URL="https://bugs.debian.org/"
 
 # printenv
 GRAALVM_HOME=/opt/graalvm
-ECR_URL=https://eu-central-1.console.aws.amazon.com/ecr/repositories
-HOSTNAME=39d8e4156349
+DOCKER_HUB_URL=https://hub.docker.com/repository/docker/
+HOSTNAME=ochmanskide
 JAVA_HOME=/opt/graalvm
 GRADLE_HOME=/opt/gradle
-AWS_DEFAULT_REGION=eu-central-1
 DOCKER_REPOSITORY=releases
 PWD=/home/gradle
 IMAGE_SOURCE=https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17
 CI_COMMIT_TAG=
 HOME=/root
 CI_COMMIT_SHA=
-GRADLE_VERSION=7.4
+GRADLE_VERSION=7.5
 TERM=xterm
-HOST=###HOST###
-AWS_ACCOUNT_ID=964010022385
+HOST=ochmanskide
 SHLVL=1
 CI_COMMIT_BRANCH=
 PATH=/opt/graalvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

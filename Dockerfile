@@ -1,17 +1,14 @@
 # Base image Stage 1
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim as stage1
 
-ARG AWS_DEFAULT_REGION="eu-central-1"
-ARG AWS_ACCOUNT_ID=964010022385
-ARG HOST="964010022385.dkr.ecr.eu-central-1.amazonaws.com"
-ARG DOCKER_REPOSITORY="releases"
-ARG ECR_URL="https://eu-central-1.console.aws.amazon.com/ecr/repositories"
-ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17"
+ARG DOCKER_HUB_URL=https://hub.docker.com/repository/docker/
+ARG HOSTNAME=ochmanskide
+ARG IMAGE_SOURCE="https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17"
 ARG JAVA_VERSION="17.0.3+7"
 ARG JAVA_HOME="/opt/graalvm"
 ARG GRAALVM_HOME="/opt/graalvm"
 ARG GRADLE_HOME="/opt/gradle"
-ARG GRADLE_VERSION="7.4"
+ARG GRADLE_VERSION="7.5"
 ARG CI_COMMIT_BRANCH
 ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
@@ -20,11 +17,8 @@ ARG LC_ALL=C
 ARG BASE_LAYER_CACHE_KEY
 
 ENV DOWNLOADS=/downloads \
-    AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
-    AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID} \
     HOST=${HOST} \
-    DOCKER_REPOSITORY=${DOCKER_REPOSITORY} \
-    ECR_URL=${ECR_URL} \
+    DOCKER_HUB_URL=${DOCKER_HUB_URL} \
     IMAGE_SOURCE=${IMAGE_SOURCE} \
     CI_COMMIT_BRANCH=${CI_COMMIT_BRANCH} \
     CI_COMMIT_SHA=${CI_COMMIT_SHA} \
@@ -68,28 +62,22 @@ RUN rm -f /home/gradle/xx*
 # Stage 2
 FROM public.ecr.aws/docker/library/debian:stable-20220711-slim
 
-ARG AWS_DEFAULT_REGION="eu-central-1"
-ARG AWS_ACCOUNT_ID=964010022385
-ARG HOST="964010022385.dkr.ecr.eu-central-1.amazonaws.com"
-ARG DOCKER_REPOSITORY="releases"
-ARG ECR_URL="https://eu-central-1.console.aws.amazon.com/ecr/repositories"
-ARG IMAGE_SOURCE="https://git-codecommit.eu-central-1.amazonaws.com/v1/repos/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17"
+ARG DOCKER_HUB_URL=https://hub.docker.com/repository/docker/
+ARG HOSTNAME=ochmanskide
+ARG IMAGE_SOURCE="https://github.com/lukaszochmanski/base.images.debian.debian-11-bullseye.mandrel.22-1.java-17.mandrel-22-1-gradle-7-4-java-17"
 ARG JAVA_VERSION="17.0.3+7"
 ARG JAVA_HOME="/opt/graalvm"
 ARG GRAALVM_HOME="/opt/graalvm"
 ARG GRADLE_HOME="/opt/gradle"
-ARG GRADLE_VERSION="7.4"
+ARG GRADLE_VERSION="7.5"
 ARG CI_COMMIT_BRANCH
 ARG CI_COMMIT_SHA
 ARG CI_COMMIT_TAG
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV DOWNLOADS=/downloads \
-    AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
-    AWS_ACCOUNT_ID=${AWS_ACCOUNT_ID} \
     HOST=${HOST} \
-    DOCKER_REPOSITORY=${DOCKER_REPOSITORY} \
-    ECR_URL=${ECR_URL} \
+    DOCKER_HUB_URL=${DOCKER_HUB_URL} \
     IMAGE_SOURCE=${IMAGE_SOURCE} \
     CI_COMMIT_BRANCH=${CI_COMMIT_BRANCH} \
     CI_COMMIT_SHA=${CI_COMMIT_SHA} \
@@ -98,6 +86,9 @@ ENV DOWNLOADS=/downloads \
     GRAALVM_HOME=${GRAALVM_HOME} \
     GRADLE_HOME=${GRADLE_HOME} \
     GRADLE_VERSION=${GRADLE_VERSION} \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8 \
     JAVA_VERSION=${JAVA_VERSION} \
     DEBIAN_FRONTEND=${DEBIAN_FRONTEND} \
     PATH="${JAVA_HOME}/bin:${PATH}"
